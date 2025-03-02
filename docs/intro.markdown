@@ -4,7 +4,7 @@ title: Introducción
 permalink: /intro/
 ---
 
-**INTRODUCCIÓN**
+### INTRODUCCIÓN
 
 
 **Nombre del módulo:** Alojamiento
