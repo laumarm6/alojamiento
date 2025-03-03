@@ -36,7 +36,7 @@ plugins:
 #plugins:
 #- jekyll-remote-theme 
 
-theme: just-the-docs
+remote_theme: pages-themes/just-the-docs
 
 # Exclude from processing.
 # The following items will not be processed, by default.
