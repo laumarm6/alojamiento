@@ -4,7 +4,7 @@ title: Diagramas de flujo
 permalink: /diagramas/
 ---
 
-### MAPA MÓDULO
+### DIAGRAMAS DE FLUJO
 
 ![Diagramas de flujo](diagramaflujo.png)
 
