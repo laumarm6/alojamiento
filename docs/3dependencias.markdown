@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Dependencias
+title: 3. Dependencias otros módulos
 permalink: /dependencias/
 ---
 

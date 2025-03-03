@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Diagramas de flujo
+title: 6. Diagramas de flujo
 permalink: /diagramas/
 ---
 
