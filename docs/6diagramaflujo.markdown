@@ -8,6 +8,7 @@ permalink: /diagramas/
 
 ---
 
+
 ![Diagramas de flujo](diagramaflujo.png)
 
 
