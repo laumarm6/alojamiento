@@ -6,6 +6,8 @@ permalink: /mapa/
 
 ### MAPA MÓDULO
 
+---
+
 ![Mapa del módulo alojamiento](mapasitio.png)
 
 

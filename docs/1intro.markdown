@@ -6,6 +6,7 @@ permalink: /intro/
 
 ### INTRODUCCIÓN
 
+---
 
 **Nombre del módulo:** Alojamiento
 

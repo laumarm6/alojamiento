@@ -6,6 +6,7 @@ permalink: /dependencias/
 
 ### DEPENDENCIAS OTROS MÓDULOS
 
+---
 
 **Nombre del módulo:** Ventas
 
