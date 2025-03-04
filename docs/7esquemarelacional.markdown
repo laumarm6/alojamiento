@@ -9,7 +9,7 @@ permalink: /esquemabbdd/
 ---
 
 
-![Esquema BBDD](bbdd.png)
+![Esquema BBDD](BBDD.png)
 
 
 
