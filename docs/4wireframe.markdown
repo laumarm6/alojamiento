@@ -8,3 +8,4 @@ permalink: /wireframe/
 
 ---
 
+![Wireframe](wireframe.png)
