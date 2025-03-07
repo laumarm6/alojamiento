@@ -8,7 +8,7 @@ permalink: /mapa/
 
 ---
 
-![Mapa del módulo alojamiento](mapasitio.png)
+![Mapa del módulo alojamiento](mapasitio1.png)
 
 
 
