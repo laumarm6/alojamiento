@@ -16,13 +16,13 @@
 -->
 
     <!-- actions opening views on models -->
-<!--
+
     <record model="ir.actions.act_window" id="alojamiento.action_window">
       <field name="name">alojamiento window</field>
       <field name="res_model">alojamiento.alojamiento</field>
       <field name="view_mode">tree,form</field>
     </record>
--->
+
 
     <!-- server action to the one above -->
 <!--
@@ -41,18 +41,20 @@
 -->
 
     <!-- Top menu item -->
-<!--
+
     <menuitem name="alojamiento" id="alojamiento.menu_root"/>
--->
+
     <!-- menu categories -->
-<!--
+
     <menuitem name="Menu 1" id="alojamiento.menu_1" parent="alojamiento.menu_root"/>
+<!--
     <menuitem name="Menu 2" id="alojamiento.menu_2" parent="alojamiento.menu_root"/>
 -->
     <!-- actions -->
-<!--
+
     <menuitem name="List" id="alojamiento.menu_1_list" parent="alojamiento.menu_1"
               action="alojamiento.action_window"/>
+<!--
     <menuitem name="Server to list" id="alojamiento" parent="alojamiento.menu_2"
               action="alojamiento.action_server"/>
 -->
