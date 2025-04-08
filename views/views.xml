@@ -19,7 +19,7 @@
 
     <record model="ir.actions.act_window" id="alojamiento.action_window">
       <field name="name">alojamiento window</field>
-      <field name="res_model">alojamiento.alojamiento</field>
+      <field name="res_model">alojamiento.contratos</field>
       <field name="view_mode">tree,form</field>
     </record>
 
