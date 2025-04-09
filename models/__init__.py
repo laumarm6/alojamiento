@@ -3,3 +3,4 @@
 from . import models
 from . import contracts
 from . import landlords
+from . import accommodations
