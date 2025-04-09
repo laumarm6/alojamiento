@@ -17,8 +17,8 @@
 
     <!-- actions opening views on models -->
 
-    <record model="ir.actions.act_window" id="alojamiento.action_window">
-      <field name="name">alojamiento window</field>
+    <record model="ir.actions.act_window" id="alojamiento.action_window_contracts">
+      <field name="name">Contratos</field>
       <field name="res_model">alojamiento.contratos</field>
       <field name="view_mode">tree,form</field>
     </record>
@@ -42,7 +42,7 @@
 
     <!-- Top menu item -->
 
-    <menuitem name="alojamiento" id="alojamiento.menu_root"/>
+    <menuitem name="Alojamiento" id="alojamiento.menu_root"/>
 
     <!-- menu categories -->
 
@@ -52,8 +52,8 @@
 -->
     <!-- actions -->
 
-    <menuitem name="List" id="alojamiento.menu_1_list" parent="alojamiento.menu_1"
-              action="alojamiento.action_window"/>
+    <menuitem name="Contratos" id="alojamiento.menu_1_list" parent="alojamiento.menu_1"
+              action="alojamiento.action_window_contracts"/>
 <!--
     <menuitem name="Server to list" id="alojamiento" parent="alojamiento.menu_2"
               action="alojamiento.action_server"/>
