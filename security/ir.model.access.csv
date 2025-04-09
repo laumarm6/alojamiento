@@ -1,3 +1,3 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_alojamiento_alojamiento,alojamiento.alojamiento,model_alojamiento_alojamiento,base.group_user,1,1,1,1
-access_alojamiento_contratos,access_alojamiento_contratos,alojamiento.model_alojamiento_contratos,base.group_user,1,1,1,1
+access_alojamiento_contracts,access_alojamiento_contracts,alojamiento.model_alojamiento_contracts,base.group_user,1,1,1,1
