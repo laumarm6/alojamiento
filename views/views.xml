@@ -46,7 +46,7 @@
 
     <!-- menu categories -->
 
-    <menuitem name="Menu 1" id="alojamiento.menu_1" parent="alojamiento.menu_root"/>
+    <menuitem name="Contratos" id="alojamiento.menu_1" parent="alojamiento.menu_root"/>
 <!--
     <menuitem name="Menu 2" id="alojamiento.menu_2" parent="alojamiento.menu_root"/>
 -->
