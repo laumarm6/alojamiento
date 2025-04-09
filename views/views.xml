@@ -35,6 +35,14 @@
       <field name="view_mode">tree,form</field>
     </record>
 
+     <record model="ir.actions.act_window" id="alojamiento.action_window_maintenanceissues">
+      <field name="name">Incidencias</field>
+      <field name="res_model">alojamiento.maintenanceissues</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    
+
 
     <!-- server action to the one above -->
 <!--
@@ -63,6 +71,9 @@
               action="alojamiento.action_window_landlords"/>
     <menuitem name="Alojamientos" id="alojamiento.accommodations" parent="alojamiento.menu_root"
               action="alojamiento.action_window_accommodations"/>
+    <menuitem name="Incidencias" id="alojamiento.maintenanceissues" parent="alojamiento.menu_root"
+              action="alojamiento.action_window_maintenanceissues"/>
+    
 <!--
     <menuitem name="Menu 2" id="alojamiento.menu_2" parent="alojamiento.menu_root"/>
 -->
