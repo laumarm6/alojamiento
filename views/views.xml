@@ -81,16 +81,16 @@
     <!-- menu categories -->
 
     <menuitem name="Alojamientos" id="alojamiento.accommodations" parent="alojamiento.menu_root"
-              action="alojamiento.action_window_accommodations"/>
+              action="alojamiento.action_window_accommodations" sequence="20" />
     
     <menuitem name="Asignaciones" id="alojamiento.allocations" parent="alojamiento.menu_root"
-              action="alojamiento.action_window_allocations"/>
+              action="alojamiento.action_window_allocations" sequence="10" />
 
     <menuitem name="Propietarios" id="alojamiento.landlords" parent="alojamiento.menu_root"
-              action="alojamiento.action_window_landlords"/>
+              action="alojamiento.action_window_landlords" sequence="30" />
 
     <menuitem name="Incidencias" id="alojamiento.maintenanceissues" parent="alojamiento.menu_root"
-              action="alojamiento.action_window_maintenanceissues"/>
+              action="alojamiento.action_window_maintenanceissues" sequence="40"/>
     
     
 <!--
