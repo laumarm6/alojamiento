@@ -6,3 +6,4 @@ from . import landlords
 from . import accommodations
 from . import maintenanceissues
 from . import allocations
+from . import rooms
