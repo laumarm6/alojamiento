@@ -17,9 +17,15 @@
 
     <!-- actions opening views on models -->
 
-    <record model="ir.actions.act_window" id="alojamiento.action_window_contracts">
-      <field name="name">Contratos</field>
-      <field name="res_model">alojamiento.contracts</field>
+     <record model="ir.actions.act_window" id="alojamiento.action_window_accommodations">
+      <field name="name">Alojamientos</field>
+      <field name="res_model">alojamiento.accommodations</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+     <record model="ir.actions.act_window" id="alojamiento.action_window_allocations">
+      <field name="name">Asignaciones</field>
+      <field name="res_model">alojamiento.allocations</field>
       <field name="view_mode">tree,form</field>
     </record>
 
@@ -29,9 +35,9 @@
       <field name="view_mode">tree,form</field>
     </record>
 
-    <record model="ir.actions.act_window" id="alojamiento.action_window_accommodations">
-      <field name="name">Alojamientos</field>
-      <field name="res_model">alojamiento.accommodations</field>
+    <record model="ir.actions.act_window" id="alojamiento.action_window_contracts">
+      <field name="name">Contratos</field>
+      <field name="res_model">alojamiento.contracts</field>
       <field name="view_mode">tree,form</field>
     </record>
 
@@ -41,11 +47,7 @@
       <field name="view_mode">tree,form</field>
     </record>
 
-    <record model="ir.actions.act_window" id="alojamiento.action_window_allocations">
-      <field name="name">Asignaciones</field>
-      <field name="res_model">alojamiento.allocations</field>
-      <field name="view_mode">tree,form</field>
-    </record>
+   
 
     
 
@@ -81,8 +83,6 @@
     <menuitem name="Propietarios" id="alojamiento.landlords" parent="alojamiento.menu_root"
               action="alojamiento.action_window_landlords"/>
 
-    <menuitem name="Contratos" id="alojamiento.contracts" parent="alojamiento.menu_root"/>
-    
     <menuitem name="Incidencias" id="alojamiento.maintenanceissues" parent="alojamiento.menu_root"
               action="alojamiento.action_window_maintenanceissues"/>
     
@@ -92,7 +92,7 @@
 -->
     <!-- actions -->
 
-    <menuitem name="Contratos" id="alojamiento.contracts_list" parent="alojamiento.contracts"
+    <menuitem name="Contratos" id="alojamiento.contracts_list" parent="alojamiento.landlords"
               action="alojamiento.action_window_contracts"/>
     
     
