@@ -24,7 +24,7 @@
     </record>
 
     <record model="ir.actions.act_window" id="alojamiento.action_window_rooms">
-      <field name="name">Hbitaciones</field>
+      <field name="name">Habitaciones</field>
       <field name="res_model">alojamiento.rooms</field>
       <field name="view_mode">tree,form</field>
     </record>
