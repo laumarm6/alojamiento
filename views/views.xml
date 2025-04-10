@@ -35,9 +35,15 @@
       <field name="view_mode">tree,form</field>
     </record>
 
-     <record model="ir.actions.act_window" id="alojamiento.action_window_maintenanceissues">
+    <record model="ir.actions.act_window" id="alojamiento.action_window_maintenanceissues">
       <field name="name">Incidencias</field>
       <field name="res_model">alojamiento.maintenanceissues</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="alojamiento.action_window_allocations">
+      <field name="name">Asignaciones</field>
+      <field name="res_model">alojamiento.allocations</field>
       <field name="view_mode">tree,form</field>
     </record>
 
@@ -66,13 +72,20 @@
 
     <!-- menu categories -->
 
-    <menuitem name="Contratos" id="alojamiento.contracts" parent="alojamiento.menu_root"/>
-    <menuitem name="Propietarios" id="alojamiento.landlords" parent="alojamiento.menu_root"
-              action="alojamiento.action_window_landlords"/>
     <menuitem name="Alojamientos" id="alojamiento.accommodations" parent="alojamiento.menu_root"
               action="alojamiento.action_window_accommodations"/>
+    
+    <menuitem name="Asignaciones" id="alojamiento.allocations" parent="alojamiento.menu_root"
+              action="alojamiento.action_window_allocations"/>
+
+    <menuitem name="Propietarios" id="alojamiento.landlords" parent="alojamiento.menu_root"
+              action="alojamiento.action_window_landlords"/>
+
+    <menuitem name="Contratos" id="alojamiento.contracts" parent="alojamiento.menu_root"/>
+    
     <menuitem name="Incidencias" id="alojamiento.maintenanceissues" parent="alojamiento.menu_root"
               action="alojamiento.action_window_maintenanceissues"/>
+    
     
 <!--
     <menuitem name="Menu 2" id="alojamiento.menu_2" parent="alojamiento.menu_root"/>
@@ -81,6 +94,7 @@
 
     <menuitem name="Contratos" id="alojamiento.contracts_list" parent="alojamiento.contracts"
               action="alojamiento.action_window_contracts"/>
+    
     
 <!--
     <menuitem name="Server to list" id="alojamiento" parent="alojamiento.menu_2"
