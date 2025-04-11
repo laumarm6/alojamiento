@@ -9,7 +9,8 @@ class Accommodations(models.Model):
 
     code = fields.Char(string="Identificador alojamiento", size = 10, required = True)
     name = fields.Char(string = "Nombre", required = True)
-    address = fields.Text(string = "Dirección", required=True)
+    address = fields.Char(string = "Dirección", required=True)
+    description = fields.Text(string = "Descripción", required=True)
     type = fields.Selection([('APT','Apartamento'),('RES','Residencia'),('FAM', 'Familia')], required=True)
     status = fields.Boolean()
 
