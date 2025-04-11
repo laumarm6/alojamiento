@@ -25,3 +25,10 @@ class Landlords(models.Model):
             pattern = re.compile("^\d{8}[A-Z]{1}$")
             if not pattern.match(record.dni):
                 raise ValidationError('El formato deben ser NNNNNNNNA donde N un número y A es una letra mayúscula ')
+
+    @api.constrains('phone')
+    def _check_phone(self):
+            for record in self:
+                pattern = re.compile("\d{9}")
+                if not pattern.match(record.phone):
+                    raise ValidationError('El formato deben ser NNNNNNNNN donde N un número')         
