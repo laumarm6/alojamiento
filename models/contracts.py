@@ -7,7 +7,7 @@ class Contracts(models.Model):
     _name = 'alojamiento.contracts'
     _description = 'Define cada uno de los alojamientos para estudiantes'
 
-    name = fields.Char(string="Identificador contrato", size = 10)
+    name = fields.Char(string="Identificador contrato", size = 10, required = True)
     status = fields.Boolean()
 
 
