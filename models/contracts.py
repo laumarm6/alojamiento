@@ -15,10 +15,11 @@ class Contracts(models.Model):
     ('name_uniq', 'unique(name)', 'El identificador debe ser unico'),
 ]
 
+#poner un identificador automático
     @api.constrains('name')
     def _check_identificador(self):
         for record in self:
             pattern = re.compile("^[A-Z]{3}\d{5,}$")
             if not pattern.match(record.name):
-                raise ValidationError('El formato deben ser AAANNNNN donde A es una letra mayúsca y N un número')
+                raise ValidationError('El formato deben ser AAANNNNN donde A es una letra mayúscula y N un número')
         
