@@ -16,7 +16,7 @@ class Landlords(models.Model):
     status = fields.Boolean()
 
     _sql_constraints = [
-    ('dni_uniq', 'unique(dni)', 'El dni debe ser unico'),
+    ('dni_uniq', 'unique(dni)', 'El dni debe ser único'),
     ]
 
     @api.constrains('dni')

@@ -12,7 +12,7 @@ class Contracts(models.Model):
 
 
     _sql_constraints = [
-    ('name_uniq', 'unique(name)', 'El identificador debe ser unico'),
+    ('name_uniq', 'unique(name)', 'El identificador debe ser único'),
 ]
 
 #poner un identificador automático
