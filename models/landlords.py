@@ -25,9 +25,9 @@ class Landlords(models.Model):
     ('dni_uniq', 'unique(dni)', 'El dni debe ser único'),
     ]
 
-# Landlords [1]:[N] Contracts - necesaria?
+# Landlords [1]:[N] Contracts 
     contract_ids = fields.One2many('alojamiento.contracts', 'landlord_id')
-# Landlords [1]:[N] Contracts - necesaria?
+# Landlords [1]:[N] Accommodations 
     accommodation_ids = fields.Many2many('alojamiento.accommodations', string = "Nº de alojamientos")
 
 

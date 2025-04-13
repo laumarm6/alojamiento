@@ -21,6 +21,9 @@ class Rooms(models.Model):
     ('name_uniq', 'unique(name)', 'El nombre debe ser único'),
      ]
     
+    # Maintenanceissues [1]:[N] Accommodations
+    accommodation_id = fields.Many2one('alojamiento.accommodations')
+    
     #poner un identificador automático
     @api.constrains('code')
     def _check_identificador(self):

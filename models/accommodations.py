@@ -21,6 +21,16 @@ class Accommodations(models.Model):
     ('code_uniq', 'unique(code)', 'El identificador debe ser único'),
     ('name_uniq', 'unique(name)', 'El nombre debe ser único'),
      ]
+
+
+    # Accommodations [1]:[N] Maintenanceissues
+    issues_ids = fields.One2many('alojamiento.maintenanceissues', 'accommodation_id')
+
+    # Accommodations [1]:[N] Maintenanceissues
+    rooms_ids = fields.One2many('alojamiento.rooms', 'accommodation_id')
+
+    # Accommodations [N]:[N] Landlords 
+    landlords_ids = fields.Many2many('alojamiento.landlords')
     
     #poner un identificador automático
     @api.constrains('code')

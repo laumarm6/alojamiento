@@ -20,6 +20,9 @@ class MaintenanceIssues(models.Model):
     ('name_uniq', 'unique(name)', 'El identificador debe ser único'),
 ]
 
+ # Maintenanceissues [1]:[N] Accommodations
+    accommodation_id = fields.Many2one('alojamiento.accommodations')
+    
 #poner un identificador automático
     @api.constrains('name')
     def _check_identificador(self):
