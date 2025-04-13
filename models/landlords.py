@@ -1,7 +1,9 @@
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError
 
+
 import re
+import datetime
 
 
 class Landlords(models.Model):
@@ -16,6 +18,7 @@ class Landlords(models.Model):
     start_date = fields.Date(string = 'Fecha de alta')
     end_date =fields.Date(string = 'Fecha de baja')
     status = fields.Boolean()
+    age = fields.Integer(string = "Antigüedad", compute ='_compute_age')
 
     _sql_constraints = [
     ('dni_uniq', 'unique(dni)', 'El dni debe ser único'),
@@ -33,4 +36,14 @@ class Landlords(models.Model):
             for record in self:
                 pattern = re.compile("\d{9}")
                 if not pattern.match(record.phone):
-                    raise ValidationError('El formato deben ser NNNNNNNNN donde N un número')         
+                    raise ValidationError('El formato deben ser NNNNNNNNN donde N un número')   
+
+    @api.depends('start_date')
+    def _compute_age(self):
+            now = datetime.date.today()
+            for record in self:
+                if record.start_date == False:
+                    record.age = 0
+                else:
+                    dif =(now - record.start_date)
+                    record.age = dif.days // 365

@@ -32,5 +32,5 @@ class MaintenanceIssues(models.Model):
 
     @api.onchange('status')
     def _onchange_status(self):
-        if self.status == 'Resuleta':
-            self.fecha_baja = date.now()
+        if self.status == 'RES'and self.end_date == False:
+            self.end_date = date.today()
