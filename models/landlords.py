@@ -19,6 +19,7 @@ class Landlords(models.Model):
     end_date =fields.Date(string = 'Fecha de baja')
     status = fields.Boolean()
     age = fields.Integer(string = "Antigüedad", compute ='_compute_age')
+    number_of_rooms = fields.Integer(string="Nº de habitaciones", compute='_compute_number_of_rooms')
 
     _sql_constraints = [
     ('dni_uniq', 'unique(dni)', 'El dni debe ser único'),
@@ -29,7 +30,6 @@ class Landlords(models.Model):
 # Landlords [1]:[N] Contracts - necesaria?
     accommodation_ids = fields.Many2many('alojamiento.accommodations', string = "Nº de alojamientos")
 
-#Quiero añadir núemro de habitaciones también, ¿cómo?
 
     @api.constrains('dni')
     def _check_dni(self):
@@ -54,3 +54,9 @@ class Landlords(models.Model):
                 else:
                     dif =(now - record.start_date)
                     record.age = dif.days // 365
+    
+    @api.depends('accommodation_ids')
+    def _compute_number_of_rooms(self):
+        for record in self:
+            record.number_of_rooms = sum(accommodation.rooms 
+                                         for accommodation in record.accommodation_ids)

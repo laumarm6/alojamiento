@@ -11,6 +11,7 @@ class Accommodations(models.Model):
     name = fields.Char(string = "Nombre", required = True)
     address = fields.Char(string = "Dirección", required=True)
     description = fields.Text(string = "Descripción", required=True)
+    rooms = fields.Integer(string="Nº de habitaciones")
     type = fields.Selection([('APT','Apartamento'),('RES','Residencia'),('FAM', 'Familia')], required=True)
     start_date = fields.Date(string = 'Fecha de alta')
     end_date =fields.Date(string = 'Fecha de baja')
@@ -29,3 +30,14 @@ class Accommodations(models.Model):
             if not pattern.match(record.code):
                 raise ValidationError('El formato deben ser AAANNNNN donde A es una letra mayúscula y N un número')
     
+    @api.constrains('rooms')
+    def _check_rooms(self):
+        for record in self:
+            if record.rooms < 0:
+             raise ValidationError("El número de habitaciones no puede ser negativo.")
+    
+    @api.constrains('start_date', 'end_date')
+    def _check_dates(self):
+            for record in self:
+                if record.end_date and record.start_date > record.end_date:
+                    raise ValidationError("La fecha de baja no puede ser anterior a la fecha de alta.")
