@@ -13,6 +13,8 @@ class Landlords(models.Model):
     surname = fields.Char(string="Apellidos")
     address = fields.Text(string = "Dirección")
     phone = fields.Char(string = "Teléfono", size = 9, required = True)
+    start_date = fields.Date(string = 'Fecha de alta')
+    end_date =fields.Date(string = 'Fecha de baja')
     status = fields.Boolean()
 
     _sql_constraints = [

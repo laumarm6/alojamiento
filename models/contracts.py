@@ -9,6 +9,8 @@ class Contracts(models.Model):
 
     name = fields.Char(string="Identificador contrato", size = 10, required = True)
     status = fields.Boolean()
+    start_date = fields.Date(string = 'Fecha de alta')
+    end_date =fields.Date(string = 'Fecha de baja')
 
 
     _sql_constraints = [

@@ -12,6 +12,8 @@ class Accommodations(models.Model):
     address = fields.Char(string = "Dirección", required=True)
     description = fields.Text(string = "Descripción", required=True)
     type = fields.Selection([('APT','Apartamento'),('RES','Residencia'),('FAM', 'Familia')], required=True)
+    start_date = fields.Date(string = 'Fecha de alta')
+    end_date =fields.Date(string = 'Fecha de baja')
     status = fields.Boolean()
 
     _sql_constraints = [
