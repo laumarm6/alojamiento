@@ -24,6 +24,13 @@ class Landlords(models.Model):
     ('dni_uniq', 'unique(dni)', 'El dni debe ser único'),
     ]
 
+# Landlords [1]:[N] Contracts - necesaria?
+    contract_ids = fields.One2many('alojamiento.contracts')
+# Landlords [1]:[N] Contracts - necesaria?
+    accommodation_ids = fields.Many2many('alojamiento.accommodations', string = "Nº de alojamientos")
+
+#Quiero añadir núemro de habitaciones también, ¿cómo?
+
     @api.constrains('dni')
     def _check_dni(self):
         for record in self:
