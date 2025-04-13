@@ -11,13 +11,19 @@ class Contracts(models.Model):
     status = fields.Boolean()
     start_date = fields.Date(string = 'Fecha de alta')
     end_date =fields.Date(string = 'Fecha de baja')
+    #me falta el campo de subir archivo y poder previsualizarlo
 
 
     _sql_constraints = [
     ('name_uniq', 'unique(name)', 'El identificador debe ser único'),
 ]
+    
+# Contracts [N]:[1] Landlords
+    landlord_id = fields.Many2one('alojamiento.landlords')
 
-#poner un identificador automático
+
+
+
     @api.constrains('name')
     def _check_identificador(self):
         for record in self:
