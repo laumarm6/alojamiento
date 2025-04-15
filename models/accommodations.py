@@ -29,8 +29,8 @@ class Accommodations(models.Model):
     # Accommodations [1]:[N] Maintenanceissues
     rooms_ids = fields.One2many('alojamiento.rooms', 'accommodation_id')
 
-    # Accommodations [N]:[N] Landlords 
-    landlords_ids = fields.Many2many('alojamiento.landlords')
+    # Accommodations [N]:[1] Landlords 
+    landlord_id = fields.Many2one('alojamiento.landlords')
     
     #poner un identificador automático
     @api.constrains('code')

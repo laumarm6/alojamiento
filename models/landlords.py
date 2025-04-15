@@ -16,7 +16,7 @@ class Landlords(models.Model):
     address = fields.Text(string = "Dirección")
     phone = fields.Char(string = "Teléfono", size = 9, required = True)
     start_date = fields.Date(string = 'Fecha de alta')
-    end_date =fields.Date(string = 'Fecha de baja')
+    end_date = fields.Date(string = 'Fecha de baja')
     status = fields.Boolean()
     age = fields.Integer(string = "Antigüedad", compute ='_compute_age')
     number_of_rooms = fields.Integer(string="Nº de habitaciones", compute='_compute_number_of_rooms')
@@ -26,9 +26,9 @@ class Landlords(models.Model):
     ]
 
 # Landlords [1]:[N] Contracts 
-    contract_ids = fields.One2many('alojamiento.contracts', 'landlord_id')
+    contract_ids = fields.One2many('alojamiento.contracts', 'landlord_id', string ="Contratos")
 # Landlords [1]:[N] Accommodations 
-    accommodation_ids = fields.Many2many('alojamiento.accommodations', string = "Nº de alojamientos")
+    accommodation_id = fields.One2many('alojamiento.accommodations', 'landlord_id',string = "Alojamientos")
 
 
     @api.constrains('dni')
@@ -55,8 +55,8 @@ class Landlords(models.Model):
                     dif =(now - record.start_date)
                     record.age = dif.days // 365
     
-    @api.depends('accommodation_ids')
+    @api.depends('accommodation_id')
     def _compute_number_of_rooms(self):
         for record in self:
             record.number_of_rooms = sum(accommodation.rooms 
-                                         for accommodation in record.accommodation_ids)
+                                         for accommodation in record.accommodation_id)
