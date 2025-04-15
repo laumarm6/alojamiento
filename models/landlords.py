@@ -28,7 +28,7 @@ class Landlords(models.Model):
 # Landlords [1]:[N] Contracts 
     contract_ids = fields.One2many('alojamiento.contracts', 'landlord_id', string ="Contratos")
 # Landlords [1]:[N] Accommodations 
-    accommodation_id = fields.One2many('alojamiento.accommodations', 'landlord_id',string = "Alojamientos", required = True)
+    accommodation_ids = fields.One2many('alojamiento.accommodations', 'landlord_id',string = "Alojamientos", required = True)
 
 
     @api.constrains('dni')

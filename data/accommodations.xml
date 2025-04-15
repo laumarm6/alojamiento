@@ -10,6 +10,9 @@
             <field name="start_date">2018-2-15</field>
             <field name="end_date"></field>
             <field name="status">1</field>
+            <field name="issues_ids"></field>
+            <field name="rooms_ids"></field>
+            <field name="landlord_id"></field>
           </record>
 
           <record model="alojamiento.accommodations" id="alojamiento.accommodations_RES2" >
@@ -22,6 +25,9 @@
             <field name="start_date">2020-4-25</field>
             <field name="end_date">2022-8-19</field>
             <field name="status">0</field>
+            <field name="issues_ids"></field>
+            <field name="rooms_ids"></field>
+            <field name="landlord_id"></field>
           </record>
 
           <record model="alojamiento.accommodations" id="alojamiento.accommodations_FAM1" >
@@ -34,6 +40,9 @@
             <field name="start_date">2023-1-15</field>
             <field name="end_date"></field>
             <field name="status">1</field>
+            <field name="issues_ids"></field>
+            <field name="rooms_ids"></field>
+            <field name="landlord_id"></field>
           </record>
 
           <record model="alojamiento.accommodations" id="alojamiento.accommodations_FAM2" >
@@ -46,6 +55,9 @@
             <field name="start_date">2025-2-15</field>
             <field name="end_date"></field>
             <field name="status">1</field>
+            <field name="issues_ids"></field>
+            <field name="rooms_ids"></field>
+            <field name="landlord_id"></field>
           </record>
 
           <record model="alojamiento.accommodations" id="alojamiento.accommodations_APT1" >
@@ -58,6 +70,9 @@
             <field name="start_date">2015-2-15</field>
             <field name="end_date"></field>
             <field name="status">1</field>
+            <field name="issues_ids"></field>
+            <field name="rooms_ids"></field>
+            <field name="landlord_id"></field>
           </record>
     </data>
 </odoo>
