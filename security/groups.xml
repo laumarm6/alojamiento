@@ -1,0 +1,27 @@
+<odoo>
+    <data>
+          <record id="alojamiento.category_group" model="ir.module.category" >
+            <field name="name">Alojamiento</field>
+          </record>
+
+          <record id="alojamiento.group_OFFICE" model="res.groups" >
+            <field name="name">Oficina</field>
+            <field name="category_id" ref="alojamiento.category_group"/>
+          </record>
+
+          <record id="alojamiento.group_TEACHERS" model="res.groups" >
+            <field name="name">Profesores</field>
+            <field name="category_id" ref="alojamiento.category_group"/>
+          </record>
+
+          <record id="alojamiento.group_STUDENTS" model="res.groups" >
+            <field name="name">Estudiantes</field>
+            <field name="category_id" ref="alojamiento.category_group"/>
+          </record>
+
+          <record id="alojamiento.group_MANAGERS" model="res.groups" >
+            <field name="name">Jefes</field>
+            <field name="category_id" ref="alojamiento.category_group"/>
+          </record>
+    </data>
+</odoo>

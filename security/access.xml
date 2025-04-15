@@ -1,0 +1,13 @@
+<odoo>
+    <data>
+          <record id="alojamiento.validation_access_office" model="ir.module.category" >
+            <field name="name">Acceso personal de administarción</field>
+            <field name="model_id" ref = "model_alojamiento_alojamiento"/>
+            <field name="group_id" ref = "alojamiento.group_OFFICE"/>
+            <field name="perm_read">1</field>
+            <field name="perm_create">1</field>
+            <field name="perm_write">1</field>
+            <field name="perm_unlink">1</field>
+          </record>
+    </data>
+</odoo>
