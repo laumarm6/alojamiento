@@ -18,8 +18,8 @@ class Landlords(models.Model):
     start_date = fields.Date(string = 'Fecha de alta')
     end_date = fields.Date(string = 'Fecha de baja')
     status = fields.Boolean()
-    age = fields.Integer(string = "Antigüedad", compute ='_compute_age')
-    number_of_rooms = fields.Integer(string="Nº de habitaciones", compute='_compute_number_of_rooms')
+    age = fields.Integer(string = "Antigüedad", compute ='_compute_age', readonly=True)
+    number_of_rooms = fields.Integer(string="Nº de habitaciones", compute='_compute_number_of_rooms', readonly=True)
 
     _sql_constraints = [
     ('dni_uniq', 'unique(dni)', 'El dni debe ser único'),
@@ -28,7 +28,7 @@ class Landlords(models.Model):
 # Landlords [1]:[N] Contracts 
     contract_ids = fields.One2many('alojamiento.contracts', 'landlord_id', string ="Contratos")
 # Landlords [1]:[N] Accommodations 
-    accommodation_id = fields.One2many('alojamiento.accommodations', 'landlord_id',string = "Alojamientos")
+    accommodation_id = fields.One2many('alojamiento.accommodations', 'landlord_id',string = "Alojamientos", required = True)
 
 
     @api.constrains('dni')

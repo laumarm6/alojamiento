@@ -12,7 +12,7 @@ class MaintenanceIssues(models.Model):
 
     name = fields.Char(string="Identificador incidencia", size = 10, required = True)
     start_date= fields.Date(string="Fecha de alta", default=lambda self: date.today())
-    end_date= fields.Date(string="Fecha de baja")
+    end_date= fields.Date(string="Fecha de baja", readonly=True)
     status = fields.Selection([('PEN','Pendiente'),('PRO','En proceso'),('RES', 'Resuelta')])
 
 
