@@ -1,0 +1,63 @@
+<odoo>
+    <data>
+          <record model="alojamiento.accommodations" id="alojamiento.accommodations_RES1" >
+            <field name="code">RES00001</field>
+            <field name="name">Residencia Students Blue</field>
+            <field name="address">c/Alta, 3</field>
+            <field name="description">Residencia céntrica con vistas a la playa</field>
+            <field name="rooms">25</field>
+            <field name="type">Residencia</field>
+            <field name="start_date">2018-2-15</field>
+            <field name="end_date"></field>
+            <field name="status">1</field>
+          </record>
+
+          <record model="alojamiento.accommodations" id="alojamiento.accommodations_RES2" >
+            <field name="code">RES00002</field>
+            <field name="name">Residencia Students Red</field>
+            <field name="address">c/Baja, 23</field>
+            <field name="description">Residencia con habitaciones con baño propio</field>
+            <field name="rooms">17</field>
+            <field name="type">Residencia</field>
+            <field name="start_date">2020-4-25</field>
+            <field name="end_date">2022-8-19</field>
+            <field name="status">0</field>
+          </record>
+
+          <record model="alojamiento.accommodations" id="alojamiento.accommodations_FAM1" >
+            <field name="code">FAM00001</field>
+            <field name="name">Familia Alicia Pérez</field>
+            <field name="address">c/Concordia, 87</field>
+            <field name="description">Familia con hijos de 3 y 5 años</field>
+            <field name="rooms">1</field>
+            <field name="type">Familia</field>
+            <field name="start_date">2023-1-15</field>
+            <field name="end_date"></field>
+            <field name="status">1</field>
+          </record>
+
+          <record model="alojamiento.accommodations" id="alojamiento.accommodations_FAM2" >
+            <field name="code">FAM00002</field>
+            <field name="name">Familia Pedro Martí</field>
+            <field name="address">c/Rosas, 43</field>
+            <field name="description">Familia con 1 hijo adolescente y mascota</field>
+            <field name="rooms">1</field>
+            <field name="type">Familia</field>
+            <field name="start_date">2025-2-15</field>
+            <field name="end_date"></field>
+            <field name="status">1</field>
+          </record>
+
+          <record model="alojamiento.accommodations" id="alojamiento.accommodations_APT1" >
+            <field name="code">APT00001</field>
+            <field name="name">Apartamento 14</field>
+            <field name="address">c/Cortes Valencianas, 45</field>
+            <field name="description">Apartamento de 60 m2 con terraza</field>
+            <field name="rooms">1</field>
+            <field name="type">Apartamento</field>
+            <field name="start_date">2015-2-15</field>
+            <field name="end_date"></field>
+            <field name="status">1</field>
+          </record>
+    </data>
+</odoo>
