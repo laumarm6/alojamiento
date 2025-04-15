@@ -30,7 +30,12 @@
         'views/views.xml',
         'views/templates.xml',
         #datos modelo
-        'data/accommodations.xml'
+        'data/landlords.xml',
+        'data/accommodations.xml',
+        'data/maintenanceissues.xml',
+        'data/rooms.xml',
+        'data/contracts.xml',
+        
     ],
     # only loaded in demonstration mode
     'demo': [

@@ -28,7 +28,7 @@ class Landlords(models.Model):
 # Landlords [1]:[N] Contracts 
     contract_ids = fields.One2many('alojamiento.contracts', 'landlord_id', string ="Contratos")
 # Landlords [1]:[N] Accommodations 
-    accommodation_ids = fields.One2many('alojamiento.accommodations', 'landlord_id',string = "Alojamientos", required = True)
+    accommodation_ids = fields.One2many('alojamiento.accommodations', 'landlord_id', string = "Alojamientos", required = True)
 
 
     @api.constrains('dni')
@@ -55,8 +55,8 @@ class Landlords(models.Model):
                     dif =(now - record.start_date)
                     record.age = dif.days // 365
     
-    @api.depends('accommodation_id')
+    @api.depends('accommodation_ids')
     def _compute_number_of_rooms(self):
         for record in self:
             record.number_of_rooms = sum(accommodation.rooms 
-                                         for accommodation in record.accommodation_id)
+                                         for accommodation in record.accommodation_ids)

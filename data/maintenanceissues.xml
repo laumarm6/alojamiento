@@ -1,0 +1,10 @@
+<odoo>
+    <data>
+          <record model="alojamiento.maintenanceissues" id="alojamiento_maintenanceissues_ISS1">
+            <field name="name">001</field>
+            <field name="start_date">2018-02-15</field>
+            <field name="end_date">2018-02-17</field>
+            <field name="status">RES</field>
+          </record>
+    </data>
+</odoo>

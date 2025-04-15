@@ -1,0 +1,13 @@
+<odoo>
+    <data>
+          <record model="alojamiento.rooms" id="alojamiento_rooms_ROM1">
+            <field name="code">ROM00001</field>
+            <field name="name">Habitacion1</field>
+            <field name="description">Habitación individual con balcón</field>
+            <field name="type">SEN</field>
+            <field name="num_beds">1</field>
+            <field name="num_bath">0</field>
+            <field name="status">True</field>
+          </record>
+    </data>
+</odoo>

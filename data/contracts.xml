@@ -1,11 +1,10 @@
 <odoo>
     <data>
-          <record model="alojamiento.contracts" id="alojamiento.contracts_CON1" >
+          <record model="alojamiento.contracts" id="alojamiento_contracts_CON1">
             <field name="name">CON00001</field>
-            <field name="status">1</field>
-            <field name="start_date">2018-2-15</field>
-            <field name="end_date"></field>
-            <field name="landlord_id"></field>
+            <field name="status">True</field>
+            <field name="start_date">2018-02-15</field>
+            <field name="end_date">2019-02-15</field>
           </record>
     </data>
 </odoo>

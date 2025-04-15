@@ -1,14 +1,14 @@
 <odoo>
     <data>
-          <record model="alojamiento.landlords" id="alojamiento.landlords_LAN1" >
+        <record model="alojamiento.landlords" id="alojamiento_landlords_LAN1">
             <field name="dni">48999987S</field>
             <field name="name">Juan</field>
             <field name="surname">Perez</field>
             <field name="address">c/Alta, 3</field>
             <field name="phone">600000000</field>
-            <field name="start_date">2022-3-22</field>
-            <field name="end_date"></field>
-            <field name="status">0</field>
-          </record>
+            <field name="start_date">2022-03-22</field>
+            <field name="end_date">2022-03-23</field>
+            <field name="status">True</field>
+        </record>
     </data>
 </odoo>
