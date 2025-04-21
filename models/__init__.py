@@ -9,6 +9,7 @@ from . import landlords
 from . import contracts
 from . import bookings
 from . import aclients
+from . import students
 
 
 

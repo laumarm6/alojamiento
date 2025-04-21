@@ -7,3 +7,4 @@ access_alojamiento_maintenanceissues,access_alojamiento_maintenanceissues,alojam
 access_alojamiento_allocations,access_alojamiento_allocations,alojamiento.model_alojamiento_allocations,base.group_user,1,1,1,1
 access_alojamiento_rooms,access_alojamiento_rooms,alojamiento.model_alojamiento_rooms,base.group_user,1,1,1,1
 access_alojamiento_bookings,access_alojamiento_bookings,alojamiento.model_alojamiento_bookings,base.group_user,1,1,1,1
+access_alojamiento_students,access_alojamiento_students,alojamiento.model_alojamiento_students,base.group_user,1,1,1,1

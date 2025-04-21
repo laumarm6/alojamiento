@@ -11,6 +11,7 @@ class Bookings(models.Model):
     end_date= fields.Date(string="Fecha fin", required=True)
     status = fields.Selection([('PEN', 'Pendiente'), ('CONF', 'Confirmada'), ('CANC', 'Cancelada')], default='PEN')
     days = fields.Integer(string="Duración", compute='_compute_days')
+    
 
 
     _sql_constraints = [
@@ -18,10 +19,12 @@ class Bookings(models.Model):
 ]
     
     # Bookings [N]:[1] Clients
-    client_id = fields.Many2one('alojamiento.aclients')
+    client_id = fields.Many2one('alojamiento.aclients', string = "Cliente")
 
     # Bookings [N]:[N] Habitaciones
-    rooms_ids = fields.Many2many('alojamiento.rooms', string = "Habitaciones asignadas")
+    #rooms_ids = fields.Many2many('alojamiento.rooms', string = "Habitaciones asignadas")
+
+    allocations_ids = fields.One2many('alojamiento.allocations', 'booking_id', string="Asignaciones")
     
     @api.constrains('name')
     def _check_identificador(self):

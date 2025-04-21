@@ -66,6 +66,12 @@
       <field name="view_mode">tree,form</field>
     </record>
 
+    <record model="ir.actions.act_window" id="alojamiento.action_window_students">
+      <field name="name">Estudiantes</field>
+      <field name="res_model">alojamiento.students</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
    
 
     
@@ -110,6 +116,9 @@
     
     <menuitem name="Clientes" id="alojamiento.aclients" parent="alojamiento.menu_root"
               action="alojamiento.action_window_aclients" sequence="30"/>
+    
+    <menuitem name="Estudiantes" id="alojamiento.students" parent="alojamiento.menu_root"
+              action="alojamiento.action_window_students" sequence="70"/>
     
     
 <!--

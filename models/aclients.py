@@ -5,7 +5,7 @@ class AccommodationClients(models.Model):
 
     # herencia por propotipo extiendo la clase pero creo nuevas vistas
     #_name = 'alojamiento.aclients'
-    _description = 'Listado de los clientes con alojamiento y sus características'
+    _description = 'Listado de los clientes'
     _inherit = 'res.partner'
 
 
