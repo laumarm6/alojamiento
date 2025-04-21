@@ -9,6 +9,7 @@ import datetime
 class Landlords(models.Model):
     _name = 'alojamiento.landlords'
     _description = 'Define cada uno de los propietarios de alojameinto'
+    _rec_name = "surname"
 
     dni = fields.Char(string = "DNI", size = 9, required = True)
     name = fields.Char(string="Nombre", required = True)
