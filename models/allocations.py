@@ -5,10 +5,10 @@ class Allocations(models.Model):
     _name = 'alojamiento.allocations'
     _description = 'Relación entre reservas, estudiantes y habitaciones asignadas'
 
-    name = fields.Char(string="Nombre")
-    room_id = fields.Many2one('alojamiento.rooms', required=True)
-    booking_id = fields.Many2one('alojamiento.bookings', required=True)
-    student_id = fields.Many2one('alojamiento.students', required=True)
+    name = fields.Char(string="Identificador")
+    room_id = fields.Many2one('alojamiento.rooms')
+    booking_id = fields.Many2one('alojamiento.bookings')
+    student_id = fields.Many2one('alojamiento.students')
     type = fields.Selection([('AUT', 'Automática'), ('MAN', 'Manual')])
     
 
