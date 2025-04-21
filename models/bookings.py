@@ -25,7 +25,7 @@ class Bookings(models.Model):
     students_ids = fields.Many2many('alojamiento.students', string = "Estudiantes")
 
     # Bookings [N]:[N] Habitaciones
-    rooms_ids = fields.Many2many('alojamiento.rooms', string = "Habitaciones")
+    assigments_ids = fields.One2many('alojamiento.booking_room_rel','booking_id', string = "Habitaciones asignadas")
     
     
     @api.constrains('name')
