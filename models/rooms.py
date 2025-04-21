@@ -23,6 +23,8 @@ class Rooms(models.Model):
     
     # Rooms [N]:[1] Accommodations
     accommodation_id = fields.Many2one('alojamiento.accommodations')
+
+    
     
     #poner un identificador automático
     @api.constrains('code')
@@ -32,7 +34,7 @@ class Rooms(models.Model):
             if not pattern.match(record.code):
                 raise ValidationError('El formato deben ser AAANNNNN donde A es una letra mayúscula y N un número')
 
-#si lo quito no funciona
+
 class BookingsRoomsRel (models.Model):
     _name = 'alojamiento.booking_room_rel'
     _description = 'Relación entre reservas y habitaciones asignadas'

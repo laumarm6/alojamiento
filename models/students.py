@@ -16,9 +16,9 @@ class Students(models.Model):
     phone = fields.Char(string = "Teléfono", size = 9, required = True)
     level = fields.Selection([('LA1','A1'),('LA2','A2'),('LB1', 'B1'),('LB2', 'B2'),('LC1', 'C1'),('LC2', 'C2')])
 
-# Landlords [1]:[N] Contracts 
-    room_id = fields.Many2one('alojamiento.rooms')
-    booking_id = fields.Many2one('alojamiento.bookings')
+# Rel con Rooms y Bookings
+    
+    booking_id = fields.Many2many('alojamiento.bookings')
     
 
 

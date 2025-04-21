@@ -21,10 +21,9 @@ class Bookings(models.Model):
     # Bookings [N]:[1] Clients
     client_id = fields.Many2one('alojamiento.aclients', string = "Cliente")
 
-    # Bookings [N]:[N] Habitaciones
-    #rooms_ids = fields.Many2many('alojamiento.rooms', string = "Habitaciones asignadas")
-
-    allocations_ids = fields.One2many('alojamiento.allocations', 'booking_id', string="Asignaciones")
+    # Bookings [N]:[N] Estudiantes
+    students_ids = fields.Many2many('alojamiento.students', string = "Estudiantes")
+    
     
     @api.constrains('name')
     def _check_identificador(self):

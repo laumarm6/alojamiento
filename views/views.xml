@@ -29,13 +29,13 @@
       <field name="res_model">alojamiento.rooms</field>
       <field name="view_mode">tree,form</field>
     </record>
-
+<!--
      <record model="ir.actions.act_window" id="alojamiento.action_window_allocations">
       <field name="name">Asignaciones</field>
       <field name="res_model">alojamiento.allocations</field>
       <field name="view_mode">tree,form</field>
     </record>
-
+-->
     <record model="ir.actions.act_window" id="alojamiento.action_window_landlords">
       <field name="name">Propietarios</field>
       <field name="res_model">alojamiento.landlords</field>
@@ -104,10 +104,10 @@
     
     <menuitem name="Reservas" id="alojamiento.bookings" parent="alojamiento.menu_root"
               action="alojamiento.action_window_bookings" sequence="10"/>
-    
+    <!--
     <menuitem name="Asignaciones" id="alojamiento.allocations" parent="alojamiento.menu_root"
               action="alojamiento.action_window_allocations" sequence="20" />
-
+-->
     <menuitem name="Propietarios" id="alojamiento.landlords" parent="alojamiento.menu_root"
                sequence="50" />
 
