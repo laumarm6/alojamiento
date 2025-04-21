@@ -11,7 +11,8 @@ class Contracts(models.Model):
     status = fields.Boolean()
     start_date = fields.Date(string = 'Fecha de alta')
     end_date =fields.Date(string = 'Fecha de baja')
-    #me falta el campo de subir archivo y poder previsualizarlo
+    
+    # me falta el campo de subir archivo y poder previsualizarlo
 
 
     _sql_constraints = [

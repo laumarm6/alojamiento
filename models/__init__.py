@@ -7,6 +7,7 @@ from . import rooms
 from . import maintenanceissues
 from . import landlords
 from . import contracts
+from . import bookings
 
 
 
