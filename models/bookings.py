@@ -23,6 +23,9 @@ class Bookings(models.Model):
 
     # Bookings [N]:[N] Estudiantes
     students_ids = fields.Many2many('alojamiento.students', string = "Estudiantes")
+
+    # Bookings [N]:[N] Habitaciones
+    rooms_ids = fields.Many2many('alojamiento.rooms', string = "Habitaciones")
     
     
     @api.constrains('name')
