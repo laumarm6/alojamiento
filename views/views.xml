@@ -60,6 +60,12 @@
       <field name="view_mode">tree,form</field>
     </record>
 
+    <record model="ir.actions.act_window" id="alojamiento.action_window_aclients">
+      <field name="name">Clientes</field>
+      <field name="res_model">alojamiento.aclients</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
    
 
     
@@ -88,7 +94,7 @@
     <!-- menu categories -->
 
     <menuitem name="Alojamientos" id="alojamiento.accommodations" parent="alojamiento.menu_root"
-              sequence="30" />
+              sequence="40" />
     
     <menuitem name="Reservas" id="alojamiento.bookings" parent="alojamiento.menu_root"
               action="alojamiento.action_window_bookings" sequence="10"/>
@@ -97,10 +103,13 @@
               action="alojamiento.action_window_allocations" sequence="20" />
 
     <menuitem name="Propietarios" id="alojamiento.landlords" parent="alojamiento.menu_root"
-               sequence="40" />
+               sequence="50" />
 
     <menuitem name="Incidencias" id="alojamiento.maintenanceissues" parent="alojamiento.menu_root"
-              action="alojamiento.action_window_maintenanceissues" sequence="50"/>
+              action="alojamiento.action_window_maintenanceissues" sequence="60"/>
+    
+    <menuitem name="Clientes" id="alojamiento.aclients" parent="alojamiento.menu_root"
+              action="alojamiento.action_window_aclients" sequence="30"/>
     
     
 <!--
