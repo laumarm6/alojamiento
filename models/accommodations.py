@@ -51,3 +51,10 @@ class Accommodations(models.Model):
             for record in self:
                 if record.end_date and record.start_date > record.end_date:
                     raise ValidationError("La fecha de baja no puede ser anterior a la fecha de alta.")
+                
+
+    @api.constrains('owner_ids')
+    def _check_owner(self):
+        for record in self:
+            if not record.landlord_ids:
+             raise ValidationError("Debe haber al menos un propietario asignado al alojamiento.")
