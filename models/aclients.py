@@ -8,12 +8,11 @@ class AccommodationClients(models.Model):
     _description = 'Listado de los clientes con alojamiento y sus características'
     _inherit = 'res.partner'
 
-  # room_preference = fields.Selection([
-       # ('SGL', 'Individual'),
+
+    #accommodation_client = fields.Boolean(string="Cliente de Alojamiento", default=False)
+    #room_preference = fields.Selection([
+       # ('IND', 'Individual'),
        # ('DBL', 'Doble'),
         #('PRV', 'Con baño privado'),
    # ], string="Preferencia de habitación")
-   # accommodation_client = fields.Boolean(string="Cliente de Alojamiento", default=False)
-
-   # name = fields.Char(string="Nombre")
-    #status = fields.Char()  
+    
