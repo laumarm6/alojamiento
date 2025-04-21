@@ -24,13 +24,13 @@ class Accommodations(models.Model):
 
 
     # Accommodations [1]:[N] Maintenanceissues
-    issues_ids = fields.One2many('alojamiento.maintenanceissues', 'accommodation_id')
+    issues_ids = fields.One2many('alojamiento.maintenanceissues', 'accommodation_id', string = "Incidencias")
 
-    # Accommodations [1]:[N] Maintenanceissues
-    rooms_ids = fields.One2many('alojamiento.rooms', 'accommodation_id')
+    # Accommodations [1]:[N] Rooms
+    rooms_ids = fields.One2many('alojamiento.rooms', 'accommodation_id', string="Habitaciones")
 
     # Accommodations [N]:[1] Landlords 
-    landlord_id = fields.Many2one('alojamiento.landlords')
+    landlord_id = fields.Many2one('alojamiento.landlords', string="Propietario")
     
     #poner un identificador automático
     @api.constrains('code')
