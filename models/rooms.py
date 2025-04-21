@@ -21,7 +21,7 @@ class Rooms(models.Model):
     ('name_uniq', 'unique(name)', 'El nombre debe ser único'),
      ]
     
-    # Maintenanceissues [1]:[N] Accommodations
+    # Rooms [N]:[1] Accommodations
     accommodation_id = fields.Many2one('alojamiento.accommodations')
     
     #poner un identificador automático
@@ -31,4 +31,17 @@ class Rooms(models.Model):
             pattern = re.compile("^[A-Z]{3}\d{5,}$")
             if not pattern.match(record.code):
                 raise ValidationError('El formato deben ser AAANNNNN donde A es una letra mayúscula y N un número')
-    
+
+
+class BookingsRoomsRel (models.Model):
+    _name = 'alojamiento.booking_room_rel'
+    _description = 'Relación entre reservas y habitaciones asignadas'
+
+    room_id = fields.Many2one('alojamiento.rooms')
+    booking_id = fields.Many2one('alojamiento.bookings')
+    type = fields.Selection([('AUT', 'Automática'), ('MAN', 'Manual')])
+
+
+    _sql_constraints = [
+    ('booking_room_uniq', 'unique(room_id,booking_id)', 'La combinación de reserva y habitación debe ser único'),
+    ]

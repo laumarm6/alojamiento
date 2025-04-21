@@ -19,6 +19,9 @@ class Bookings(models.Model):
     
     # Bookings [N]:[1] Clients
     client_id = fields.Many2one('alojamiento.aclients')
+
+    # Bookings [N]:[N] Habitaciones
+    rooms_ids = fields.Many2many('alojamiento.rooms', string = "Habitaciones asignadas")
     
     @api.constrains('name')
     def _check_identificador(self):
@@ -40,3 +43,6 @@ class Bookings(models.Model):
                 record.days = (record.end_date - record.start_date).days
             else:
                 record.days = 0
+
+
+
