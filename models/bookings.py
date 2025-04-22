@@ -27,6 +27,7 @@ class Bookings(models.Model):
     # Bookings [N]:[N] Habitaciones
     assigments_ids = fields.One2many('alojamiento.booking_room_rel','booking_id', string = "Habitaciones asignadas")
     
+    #añadir si asigment true que cambie estado a Confirmada
     
     @api.constrains('name')
     def _check_identificador(self):
