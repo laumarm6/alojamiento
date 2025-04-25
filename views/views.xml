@@ -63,11 +63,7 @@
         </field>
     </record>
 
-    <record id="action_accommodation" model="ir.actions.act_window">
-        <field name="name">Alojamientos</field>
-        <field name="res_model">alojamiento.accommodations</field>
-        <field name="view_mode">tree,form</field>
-    </record>
+  
 
 
     <!-- actions opening views on models -->
