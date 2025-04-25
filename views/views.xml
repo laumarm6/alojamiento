@@ -201,6 +201,7 @@
                         <group>
                             <field name="start_date"/>
                             <field name="end_date"/>
+                            <field name="landlord_id"/>
                         </group>
                     </group>
                 </sheet>
