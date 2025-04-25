@@ -129,7 +129,7 @@
       </field>
     </record>
     
-    <!-- formulario accommodation -->
+    <!-- formulario landlords -->
     <record id="view_landlords_form" model="ir.ui.view">
         <field name="name">alojamiento.landlords.form</field>
         <field name="model">alojamiento.landlords</field>

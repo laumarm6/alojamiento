@@ -21,7 +21,7 @@ class MaintenanceIssues(models.Model):
 ]
 
  # Maintenanceissues [1]:[N] Accommodations
-    accommodation_id = fields.Many2one('alojamiento.accommodations')
+    accommodation_id = fields.Many2one('alojamiento.accommodations', string="Alojamiento")
     
 #poner un identificador automático
     @api.constrains('name')

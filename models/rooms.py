@@ -22,7 +22,7 @@ class Rooms(models.Model):
      ]
     
     # Rooms [N]:[1] Accommodations
-    accommodation_id = fields.Many2one('alojamiento.accommodations')
+    accommodation_id = fields.Many2one('alojamiento.accommodations', string="Alojamiento")
 
     
     

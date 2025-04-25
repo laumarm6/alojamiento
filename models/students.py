@@ -18,7 +18,7 @@ class Students(models.Model):
 
 # Estudiantes [N]:[N] Reservas
     
-    booking_id = fields.Many2many('alojamiento.bookings')
+    booking_id = fields.Many2many('alojamiento.bookings', string="Reservas")
     
 
 
