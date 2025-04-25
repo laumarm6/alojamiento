@@ -15,7 +15,7 @@
     <template id="report_bookings_template">
       <t t-call="web.basic_layout">
         <div class="page">
-          <h2>Reporte de Reservas</h2>
+          <h2 style="margin-bottom: 50px;">Reporte de Reservas</h2>
           <table style="width: 100%; border: 1px solid #ddd; border-collapse: collapse;">
             <thead>
               <tr style="background-color: #f2f2f2;">
