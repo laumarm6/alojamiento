@@ -15,6 +15,7 @@
         </tree>
       </field>
     </record>
+
  <!-- formulario accommodation -->
     <record id="view_accommodation_form" model="ir.ui.view">
         <field name="name">alojamiento.accommodations.form</field>
@@ -250,7 +251,23 @@
         </field>
     </record>
 
-    <!-- vista bookings -->
+
+
+    <!-- vista bookings calendario -->
+    
+    <record model="ir.ui.view" id="alojamiento.bookings_calendar" >
+      <field name="name">alojamiento.bookings.calendar</field>
+      <field name="model">alojamiento.bookings</field>
+      <field name="arch" type="xml">
+        <calendar string="Calendario Entradas" date_start="start_date" date_stop="start_date" color="status">
+          <field name="name"/>
+          <field name="client_id"/>
+        </calendar>
+      </field>
+    </record>
+
+
+    <!-- vista bookings lista -->
     <record model="ir.ui.view" id="alojamiento.bookings_list">
       <field name="name">alojamiento bookings list</field>
       <field name="model">alojamiento.bookings</field>
@@ -446,7 +463,7 @@
     <record model="ir.actions.act_window" id="alojamiento.action_window_bookings">
       <field name="name">Reservas</field>
       <field name="res_model">alojamiento.bookings</field>
-      <field name="view_mode">tree,form</field>
+      <field name="view_mode">calendar,tree,form</field>
     </record>
 
     <record model="ir.actions.act_window" id="alojamiento.action_window_aclients">
