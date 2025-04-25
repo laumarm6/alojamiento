@@ -265,6 +265,43 @@
       </field>
     </record>
 
+    <!-- formulario bookings -->
+    <record id="view_bookings_form" model="ir.ui.view">
+      <field name="name">alojamiento.bookings.form</field>
+      <field name="model">alojamiento.bookings</field>
+      <field name="arch" type="xml">
+          <form string="Reserva">
+              <sheet>
+                  <h2>Datos reservas</h2>
+                  <group>
+                      <group>
+                        <field name="name" />
+                        <field name="start_date" />
+                        <field name="end_date" />
+                        <field name="days" readonly="1" />
+                      </group>
+                      <group>
+                          <field name="status" />
+                          <field name="client_id" />
+                          <field name="students_ids" widget="many2many_tags"/>
+                      </group>
+                  </group>
+
+                  <notebook>
+                      <page string="Habitaciones asignadas">
+                          <field name="assigments_ids">
+                              <tree editable="bottom">
+                                  <field name="room_id"/>
+                                  <field name="type"/>
+                              </tree>
+                          </field>
+                      </page>
+                  </notebook>
+              </sheet>
+          </form>
+      </field>
+    </record>
+
 
     <!-- actions opening views on models -->
 
