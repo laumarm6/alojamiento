@@ -1,0 +1,52 @@
+<odoo>
+  <data>
+    <record id="action_report_landlords" model="ir.actions.report">
+        <field name="name">Informe de propietarios</field>
+        <field name="model">alojamiento.landlords</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">alojamiento.report_landlords_template</field>
+        <field name="binding_model_id" ref="model_alojamiento_landlords"/>
+        <field name="binding_type">report</field>
+        <field name="binding_view_types">list, form</field>
+        <field name="print_report_name">Informe propietarios</field>   
+    </record>
+
+
+    <template id="report_landlords_template">
+      <t t-call="web.basic_layout">
+        <div class="page">
+          <h2 style="margin-bottom: 50px;">Informe propietarios</h2>
+          <table style="width: 100%; border: 1px solid #ddd; border-collapse: collapse;">
+            <thead>
+              <tr style="background-color: #f2f2f2;">
+                <th style="padding: 5px; text-align: left;">DNI</th>
+                <th style="padding: 5px; text-align: left;">Nombre</th>
+                <th style="padding: 5px; text-align: left;">Apellidos</th>
+                <th style="padding: 5px; text-align: left;">Dirección</th>
+                <th style="padding: 5px; text-align: left;">Teléfono</th>
+                <th style="padding: 5px; text-align: left;">Nº de habitaciones</th>
+                <th style="padding: 5px; text-align: left;">Antigüedad</th>
+              </tr>
+            </thead>
+            <tbody>
+              <t t-foreach="docs" t-as="landlords">
+                <tr>
+                  <td style="padding: 5px;"><span t-field="landlords.dni"/></td>
+                  <td style="padding: 5px;"><span t-field="landlords.name"/></td>
+                  <td style="padding: 5px;"><span t-field="landlords.surname"/></td>
+                  <td style="padding: 5px;"><span t-field="landlords.address"/></td>
+                  <td style="padding: 5px;"><span t-field="landlords.phone"/></td>
+                  <td style="padding: 5px;"><span t-field="landlords.number_of_rooms"/></td>
+                  <td style="padding: 5px;"><span t-field="landlords.age"/></td>
+                  
+                </tr>
+              </t>
+            </tbody>
+          </table>
+        </div>
+      </t>
+    </template>
+  
+  
+  </data>       
+</odoo>

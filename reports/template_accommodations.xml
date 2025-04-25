@@ -1,6 +1,6 @@
 <odoo>
   <data>
-    <record id="action_report_bookings" model="ir.actions.report">
+    <record id="action_report_accommodations" model="ir.actions.report">
         <field name="name">Informe de alojamientos</field>
         <field name="model">alojamiento.accommodations</field>
         <field name="report_type">qweb-pdf</field>
