@@ -303,7 +303,7 @@
     </record>
 
     <!-- vista kanban de incidencias -->
-    <record id="view_maintenance_issues_kanban" model="ir.ui.view">
+    <record model="ir.ui.view" id="view_maintenance_issues_kanban" >
       <field name="name">alojamiento.maintenanceissues.kanban</field>
       <field name="model">alojamiento.maintenanceissues</field>
       <field name="arch" type="xml">
@@ -354,6 +354,20 @@
       </field>
     </record>
   
+
+  <!-- vista lista incidencias -->
+    <record model="ir.ui.view" id="alojamiento.maintenanceissues_list">
+      <field name="name">alojamiento maintenanceissues list</field>
+      <field name="model">alojamiento.maintenanceissues</field>
+      <field name="arch" type="xml">
+       <tree decoration-danger="status == 'PEN'">
+          <field name="name"/>
+          <field name="status"/>
+          <field name="description"/>
+          <field name="accommodation_id"/>
+        </tree>
+      </field>
+    </record>
   
    
 
