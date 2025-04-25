@@ -302,7 +302,7 @@
       </field>
     </record>
 
-    <!-- vista kanban de incidencias -->
+    <!-- vista kanban maintenanceissues -->
     <record model="ir.ui.view" id="view_maintenance_issues_kanban" >
       <field name="name">alojamiento.maintenanceissues.kanban</field>
       <field name="model">alojamiento.maintenanceissues</field>
@@ -355,7 +355,7 @@
     </record>
   
 
-  <!-- vista lista incidencias -->
+  <!-- vista lista maintenanceissues -->
     <record model="ir.ui.view" id="alojamiento.maintenanceissues_list">
       <field name="name">alojamiento maintenanceissues list</field>
       <field name="model">alojamiento.maintenanceissues</field>
@@ -370,6 +370,32 @@
     </record>
   
    
+
+  <!-- formulario maintenanceissues -->
+    <record id="view_maintenance_issues_form" model="ir.ui.view">
+      <field name="name">alojamiento.maintenanceissues.form</field>
+      <field name="model">alojamiento.maintenanceissues</field>
+      <field name="arch" type="xml">
+        <form string="Incidencias">
+          <sheet>
+            <group>
+              <group>
+                <field name="name"/>
+                <field name="status"/>
+                <field name="accommodation_id"/>
+              </group>
+              <group>
+                <field name="start_date"/>
+                <field name="end_date"/>
+              </group>
+            </group>
+            <group>
+              <field name="description" widget="textarea"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
 
     <!-- actions opening views on models -->
 
