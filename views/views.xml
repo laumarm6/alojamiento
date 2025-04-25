@@ -250,7 +250,7 @@
         </field>
     </record>
 
-     <!-- vista bookings -->
+    <!-- vista bookings -->
     <record model="ir.ui.view" id="alojamiento.bookings_list">
       <field name="name">alojamiento bookings list</field>
       <field name="model">alojamiento.bookings</field>
@@ -302,6 +302,60 @@
       </field>
     </record>
 
+    <!-- vista kanban de incidencias -->
+    <record id="view_maintenance_issues_kanban" model="ir.ui.view">
+      <field name="name">alojamiento.maintenanceissues.kanban</field>
+      <field name="model">alojamiento.maintenanceissues</field>
+      <field name="arch" type="xml">
+        <kanban class="o_kanban_small_column" default_group_by="status">
+
+        <!-- Definición campos -->
+          <field name="name"/>
+          <field name="status"/>
+          <field name="start_date"/>
+          <field name="end_date"/>
+          <field name="description"/>
+          <field name="accommodation_id"/>
+
+          <!-- Estilo columna -->
+          <templates>
+            <t t-name="kanban-box">
+              <div class="oe_kanban_card oe_kanban_global_click" style="padding: 10px; border: 1px solid #ddd; border-radius: 8px; background-color: #fff;">
+                <!-- Cabecera -->
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                  <strong style="font-size: 15px; color: #2c3e50;"><field name="name"/></strong>
+                  <div>
+                    <t t-if="record.status.raw_value === 'PEN'">
+                      <span class="badge badge-danger">Pendiente</span>
+                    </t>
+                    <t t-if="record.status.raw_value === 'PRO'">
+                      <span class="badge badge-warning">En proceso</span>
+                    </t>
+                    <t t-if="record.status.raw_value === 'RES'">
+                      <span class="badge badge-success">Resuelta</span>
+                    </t>
+                  </div>
+                </div>
+
+                <!-- Cuerpo -->
+                <div style="font-size: 13px; color: #555;">
+                  <p><strong>Alojamiento:</strong> <field name="accommodation_id"/></p>
+                  <p><strong>Fecha alta:</strong> <field name="start_date"/></p>
+                  <t t-if="record.end_date.raw_value">
+                    <p><strong>Fecha baja:</strong> <field name="end_date"/></p>
+                  </t>
+                  <p><strong>Descripción:</strong></p>
+                  <div style="white-space: normal; max-height: 60px; overflow: hidden; text-overflow: ellipsis;"><field name="description"/></div>
+                </div>
+              </div>
+            </t>
+          </templates>
+        </kanban>
+      </field>
+    </record>
+  
+  
+   
 
     <!-- actions opening views on models -->
 
@@ -346,7 +400,7 @@
     <record model="ir.actions.act_window" id="alojamiento.action_window_maintenanceissues">
       <field name="name">Incidencias</field>
       <field name="res_model">alojamiento.maintenanceissues</field>
-      <field name="view_mode">tree,form</field>
+      <field name="view_mode">kanban,tree,form</field>
     </record>
 
     <record model="ir.actions.act_window" id="alojamiento.action_window_bookings">
