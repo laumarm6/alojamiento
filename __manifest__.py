@@ -27,6 +27,7 @@
     # always loaded
     'data': [
         'security/ir.model.access.csv',
+        #vistas
         'views/views.xml',
         'views/templates.xml',
         #datos modelo
@@ -35,7 +36,8 @@
         'data/maintenanceissues.xml',
         'data/rooms.xml',
         'data/contracts.xml',
-        
+        #reports
+        'reports/template_bookings.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

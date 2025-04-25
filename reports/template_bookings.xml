@@ -1,0 +1,51 @@
+<odoo>
+  <data>
+    <record id="action_report_bookings" model="ir.actions.report">
+        <field name="name">Informe de reservas</field>
+        <field name="model">alojamiento.bookings</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">alojamiento.report_bookings_template</field>
+        <field name="binding_model_id" ref="model_alojamiento_bookings"/>
+        <field name="binding_type">report</field>
+        <field name="binding_view_types">list, form</field>
+        <field name="print_report_name">'Informe reservas</field>   
+    </record>
+
+
+    <template id="report_bookings_template">
+      <t t-call="web.basic_layout">
+        <div class="page">
+          <h2>Reporte de Reservas</h2>
+          <table style="width: 100%; border: 1px solid #ddd; border-collapse: collapse;">
+            <thead>
+              <tr style="background-color: #f2f2f2;">
+                <th style="padding: 5px; text-align: left;">Identificador</th>
+                <th style="padding: 5px; text-align: left;">Fecha Inicio</th>
+                <th style="padding: 5px; text-align: left;">Fecha Fin</th>
+                <th style="padding: 5px; text-align: left;">Estado</th>
+                <!--<th style="padding: 5px; text-align: left;">Cliente</th><-->
+                <th style="padding: 5px; text-align: left;">Estudiantes</th>
+                <th style="padding: 5px; text-align: left;">Duración</th>
+              </tr>
+            </thead>
+            <tbody>
+              <t t-foreach="docs" t-as="booking">
+                <tr>
+                  <td style="padding: 5px;"><span t-field="booking.name"/></td>
+                  <td style="padding: 5px;"><span t-field="booking.start_date"/></td>
+                  <td style="padding: 5px;"><span t-field="booking.end_date"/></td>
+                  <td style="padding: 5px;"><span t-field="booking.status"/></td>
+                 <!-- <td style="padding: 5px;"><span t-field="booking.client_id.name"/></td>-->
+                  <td style="padding: 5px;"><span t-field="booking.students_names"/></td>
+                  <td style="padding: 5px;"><span t-field="booking.days"/></td>
+                </tr>
+              </t>
+            </tbody>
+          </table>
+        </div>
+      </t>
+    </template>
+  
+  
+  </data>       
+</odoo>
