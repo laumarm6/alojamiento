@@ -11,7 +11,7 @@ class Rooms(models.Model):
     code = fields.Char(string="Identificador habitación", size = 10, required = True)
     name = fields.Char(string = "Nombre", required = True)
     description = fields.Text(string = "Descripción", required=True)
-    type = fields.Selection([('SEN','Sencilla'),('DBL','Doble'),('SEB', 'Sencilla con baño'),('DBB', 'Doble con baño')], required=True)
+    type = fields.Selection([('SEN','Sencilla'),('DBL','Doble'),('SEB', 'Sencilla con baño'),('DBB', 'Doble con baño')], string= "Tipo",required=True)
     num_beds = fields.Integer(string = "Nº camas", required=True)
     num_bath = fields.Integer(string= "Nº baños", required=True)
     status = fields.Boolean()
@@ -39,9 +39,9 @@ class BookingsRoomsRel (models.Model):
     _name = 'alojamiento.booking_room_rel'
     _description = 'Relación entre reservas y habitaciones asignadas'
 
-    room_id = fields.Many2one('alojamiento.rooms')
-    booking_id = fields.Many2one('alojamiento.bookings')
-    type = fields.Selection([('AUT', 'Automática'), ('MAN', 'Manual')])
+    room_id = fields.Many2one('alojamiento.rooms', string="Habitación")
+    booking_id = fields.Many2one('alojamiento.bookings', string ="Reserva")
+    type = fields.Selection([('AUT', 'Automática'), ('MAN', 'Manual')], string="Tipo")
 
 
     _sql_constraints = [
