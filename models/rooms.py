@@ -35,15 +35,3 @@ class Rooms(models.Model):
                 raise ValidationError('El formato deben ser AAANNNNN donde A es una letra mayúscula y N un número')
 
 
-class BookingsRoomsRel (models.Model):
-    _name = 'alojamiento.booking_room_rel'
-    _description = 'Relación entre reservas y habitaciones asignadas'
-
-    room_id = fields.Many2one('alojamiento.rooms', string="Habitación")
-    booking_id = fields.Many2one('alojamiento.bookings', string ="Reserva")
-    type = fields.Selection([('AUT', 'Automática'), ('MAN', 'Manual')], string="Tipo")
-
-
-    _sql_constraints = [
-    ('booking_room_uniq', 'unique(room_id,booking_id)', 'La combinación de reserva y habitación debe ser único'),
-    ]
