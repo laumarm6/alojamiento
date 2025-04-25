@@ -261,7 +261,8 @@
       <field name="arch" type="xml">
         <calendar string="Calendario Entradas" date_start="start_date" date_stop="start_date" color="status">
           <field name="name"/>
-          <field name="client_id"/>
+          <field name="status"/>
+          <field name="students_names"/>
         </calendar>
       </field>
     </record>
@@ -301,6 +302,7 @@
                           <field name="status" />
                           <field name="client_id" />
                           <field name="students_ids" widget="many2many_tags"/>
+                          <field name="students_names" invisible="1"/>
                       </group>
                   </group>
 

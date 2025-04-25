@@ -27,7 +27,9 @@ class Bookings(models.Model):
     # Bookings [N]:[N] Habitaciones
     assigments_ids = fields.One2many('alojamiento.booking_room_rel','booking_id', string = "Habitaciones asignadas")
     
-    #añadir si asigment true que cambie estado a Confirmada
+
+    students_names = fields.Char(string="Nombres estudiantes", compute='_compute_students_names')
+    
     
     @api.constrains('name')
     def _check_identificador(self):
@@ -50,5 +52,9 @@ class Bookings(models.Model):
             else:
                 record.days = 0
 
-
+    @api.depends('students_ids')
+    def _compute_students_names(self):
+        for record in self:
+            student_names = [student.name for student in record.students_ids]
+            record.students_names = '/ '.join(student_names)
 
