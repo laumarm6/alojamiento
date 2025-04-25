@@ -250,6 +250,21 @@
         </field>
     </record>
 
+     <!-- vista bookings -->
+    <record model="ir.ui.view" id="alojamiento.bookings_list">
+      <field name="name">alojamiento bookings list</field>
+      <field name="model">alojamiento.bookings</field>
+      <field name="arch" type="xml">
+       <tree decoration-danger="status == 'PEN'">
+          <field name="name"/>
+          <field name="days"/>
+          <field name="status"/>
+          <field name="client_id"/>
+          <field name="students_ids"/>
+        </tree>
+      </field>
+    </record>
+
 
     <!-- actions opening views on models -->
 
