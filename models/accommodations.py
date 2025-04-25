@@ -16,6 +16,7 @@ class Accommodations(models.Model):
     start_date = fields.Date(string = 'Fecha de alta')
     end_date =fields.Date(string = 'Fecha de baja')
     status = fields.Boolean()
+    distance = fields.Integer(string="Distancia (KM)", required=True)
 
     _sql_constraints = [
     ('code_uniq', 'unique(code)', 'El identificador debe ser único'),
