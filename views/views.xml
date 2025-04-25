@@ -196,6 +196,7 @@
                         <group>
                             <field name="name"/>
                             <field name="status"/>
+                            <field name="file" widget="pdf_viewer"/>
                         </group>
                         <group>
                             <field name="start_date"/>

@@ -11,6 +11,7 @@ class Contracts(models.Model):
     status = fields.Boolean(string = 'Firmado')
     start_date = fields.Date(string = 'Fecha de alta')
     end_date =fields.Date(string = 'Fecha de baja')
+    file = fields.Binary(string="Archivo PDF")
     
     # me falta el campo de subir archivo y poder previsualizarlo
 
