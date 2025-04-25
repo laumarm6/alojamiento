@@ -8,7 +8,7 @@ class Contracts(models.Model):
     _description = 'Define cada uno de los alojamientos para estudiantes'
 
     name = fields.Char(string="Identificador contrato", size = 10, required = True)
-    status = fields.Boolean()
+    status = fields.Boolean(string = 'Firmado')
     start_date = fields.Date(string = 'Fecha de alta')
     end_date =fields.Date(string = 'Fecha de baja')
     
@@ -20,7 +20,7 @@ class Contracts(models.Model):
 ]
     
 # Contracts [N]:[1] Landlords
-    landlord_id = fields.Many2one('alojamiento.landlords')
+    landlord_id = fields.Many2one('alojamiento.landlords', string="Propietario")
 
 
 

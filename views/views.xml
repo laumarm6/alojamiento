@@ -172,6 +172,17 @@
         </field>
     </record>
   
+  <!-- vista contracts -->
+    <record model="ir.ui.view" id="alojamiento.contracts_list_view">
+      <field name="name">alojamiento contracts list</field>
+      <field name="model">alojamiento.contracts</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="status"/>
+        </tree>
+      </field>
+    </record>
 
 
     <!-- actions opening views on models -->
