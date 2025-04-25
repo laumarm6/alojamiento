@@ -68,6 +68,19 @@
         </field>
     </record>
 
+  <!-- vista rooms -->
+    <record model="ir.ui.view" id="alojamiento.rooms_list">
+      <field name="name">alojamiento rooms list</field>
+      <field name="model">alojamiento.rooms</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="type"/>
+          <field name="description"/>
+          <field name="num_bath"/>
+        </tree>
+      </field>
+    </record>
   
 
 
