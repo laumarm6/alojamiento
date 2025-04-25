@@ -209,6 +209,21 @@
     </record>
 
 
+    <!-- vista students -->
+    <record model="ir.ui.view" id="alojamiento.students_list">
+      <field name="name">alojamiento students list</field>
+      <field name="model">alojamiento.students</field>
+      <field name="arch" type="xml">
+       <tree>
+          <field name="name"/>
+          <field name="surname"/>
+          <field name="phone"/>
+          <field name="level"/>
+        </tree>
+      </field>
+    </record>
+
+
     <!-- actions opening views on models -->
 
 
