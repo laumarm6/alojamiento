@@ -1,0 +1,47 @@
+<odoo>
+  <data>
+    <record id="action_report_bookings" model="ir.actions.report">
+        <field name="name">Informe de alojamientos</field>
+        <field name="model">alojamiento.accommodations</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">alojamiento.report_accommodations_template</field>
+        <field name="binding_model_id" ref="model_alojamiento_accommodations"/>
+        <field name="binding_type">report</field>
+        <field name="binding_view_types">list, form</field>
+        <field name="print_report_name">Informe alojamientos</field>   
+    </record>
+
+
+    <template id="report_accommodations_template">
+      <t t-call="web.basic_layout">
+        <div class="page">
+          <h2 style="margin-bottom: 50px;">Informe alojamientos</h2>
+          <table style="width: 100%; border: 1px solid #ddd; border-collapse: collapse;">
+            <thead>
+              <tr style="background-color: #f2f2f2;">
+                <th style="padding: 5px; text-align: left;">Identificador</th>
+                <th style="padding: 5px; text-align: left;">Nombre</th>
+                <th style="padding: 5px; text-align: left;">Dirección</th>
+                <th style="padding: 5px; text-align: left;">Nº de habitaciones</th>
+                <th style="padding: 5px; text-align: left;">Tipo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <t t-foreach="docs" t-as="accommodations">
+                <tr>
+                  <td style="padding: 5px;"><span t-field="accommodations.code"/></td>
+                  <td style="padding: 5px;"><span t-field="accommodations.name"/></td>
+                  <td style="padding: 5px;"><span t-field="accommodations.address"/></td>
+                  <td style="padding: 5px;"><span t-field="accommodations.rooms"/></td>
+                  <td style="padding: 5px;"><span t-field="accommodations.type"/></td>
+                </tr>
+              </t>
+            </tbody>
+          </table>
+        </div>
+      </t>
+    </template>
+  
+  
+  </data>       
+</odoo>

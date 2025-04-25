@@ -39,7 +39,7 @@
         #reports
         'reports/template_bookings.xml',
         'reports/template_maintenanceissues.xml',
-        #'reports/template_accommodations.xml',
+        'reports/template_accommodations.xml',
         #'reports/template_landlords.xml',
     ],
     # only loaded in demonstration mode
