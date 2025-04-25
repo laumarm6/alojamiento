@@ -124,7 +124,7 @@
           <field name="name"/>
           <field name="surname"/>
           <field name="phone"/>
-          <field name="number_of_rooms"/>
+          <field name="number_of_rooms" sum="True"/>
           <field name="status"/>
         </tree>
       </field>
