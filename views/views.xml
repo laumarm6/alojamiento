@@ -223,6 +223,32 @@
       </field>
     </record>
 
+     <!-- formulario students -->
+    <record id="view_students_form" model="ir.ui.view">
+        <field name="name">alojamiento.students.form</field>
+        <field name="model">alojamiento.students</field>
+        <field name="arch" type="xml">
+            <form string="Estudiantes">
+                <sheet>
+                    <h2>Datos estudiante</h2>
+                    <group>
+                        <group>
+                            <field name="dni"/>
+                            <field name="name"/>
+                            <field name="surname"/>
+                            <field name="phone"/>
+                        </group>
+                        <group>
+                            <field name="address"/>
+                            <field name="level"/>
+                            <field name="booking_id" widget="many2many_tags"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
 
     <!-- actions opening views on models -->
 
