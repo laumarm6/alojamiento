@@ -273,7 +273,7 @@
       <field name="name">alojamiento bookings list</field>
       <field name="model">alojamiento.bookings</field>
       <field name="arch" type="xml">
-       <tree decoration-danger="status == 'PEN'">
+       <tree decoration-danger="status == 'PEN'" decoration-muted="status == 'CANC'">
           <field name="name"/>
           <field name="days"/>
           <field name="status"/>
