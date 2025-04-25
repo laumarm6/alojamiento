@@ -32,7 +32,7 @@ class Accommodations(models.Model):
     # Accommodations [N]:[N] Landlords 
     landlord_ids = fields.Many2many('alojamiento.landlords', string="Propietarios")
     
-    #poner un identificador automático
+   
     @api.constrains('code')
     def _check_identificador(self):
         for record in self:
@@ -58,3 +58,5 @@ class Accommodations(models.Model):
         for record in self:
             if not record.landlord_ids:
              raise ValidationError("Debe haber al menos un propietario asignado al alojamiento.")
+    
+  

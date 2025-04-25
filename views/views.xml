@@ -2,6 +2,7 @@
   <data>
     <!-- explicit list view definition -->
 
+ <!-- vista accommodation -->
     <record model="ir.ui.view" id="alojamiento.list">
       <field name="name">alojamiento list</field>
       <field name="model">alojamiento.accommodations</field>
@@ -12,6 +13,60 @@
           <field name="address"/>
         </tree>
       </field>
+    </record>
+ <!-- formulario accommodation -->
+    <record id="view_accommodation_form" model="ir.ui.view">
+        <field name="name">alojamiento.accommodations.form</field>
+        <field name="model">alojamiento.accommodations</field>
+        <field name="arch" type="xml">
+            <form string="Alojamiento">
+                <sheet>
+                    <group>
+                        <field name="code" readonly="1"/>
+                        <field name="name"/>
+                        <field name="address"/>
+                        <field name="description"/>
+                        <field name="type"/>
+                        <field name="rooms"/>
+                        <field name="start_date"/>
+                        <field name="end_date"/>
+                        <field name="status"/>
+                        <field name="landlord_ids" widget="many2many_tags"/>
+                    </group>
+
+                    <notebook>
+                        <page string="Habitaciones">
+                            <field name="rooms_ids">
+                                <tree editable="bottom">
+                                    <field name="code"/>
+                                    <field name="name"/>
+                                    <field name="type"/>
+                                    <field name="num_beds"/>
+                                    <field name="num_bath"/>
+                                    <field name="status"/>
+                                </tree>
+                            </field>
+                        </page>
+
+                        <page string="Incidencias">
+                            <field name="issues_ids">
+                                <tree editable="bottom">
+                                    <field name="start_date"/>
+                                    <field name="status"/>
+                                   <field name="description"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_accommodation" model="ir.actions.act_window">
+        <field name="name">Alojamientos</field>
+        <field name="res_model">alojamiento.accommodations</field>
+        <field name="view_mode">tree,form</field>
     </record>
 
 

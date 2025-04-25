@@ -14,7 +14,7 @@ class MaintenanceIssues(models.Model):
     start_date= fields.Date(string="Fecha de alta", default=lambda self: date.today())
     end_date= fields.Date(string="Fecha de baja", readonly=True)
     status = fields.Selection([('PEN','Pendiente'),('PRO','En proceso'),('RES', 'Resuelta')])
-
+    description = fields.Text(string="Descripción incidencia")
 
     _sql_constraints = [
     ('name_uniq', 'unique(name)', 'El identificador debe ser único'),
