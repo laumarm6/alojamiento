@@ -73,7 +73,7 @@
       <field name="name">alojamiento rooms list</field>
       <field name="model">alojamiento.rooms</field>
       <field name="arch" type="xml">
-        <tree>
+        <tree decoration-bf="num_bath &gt; 0">
           <field name="name"/>
           <field name="type"/>
           <field name="description"/>
