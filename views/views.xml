@@ -412,6 +412,7 @@
       <field name="arch" type="xml">
         <form string="Incidencias">
           <sheet>
+          <h2>Datos Incidencia</h2>
             <group>
               <group>
                 <field name="name"/>
@@ -431,9 +432,40 @@
       </field>
     </record>
 
-  
+
+  <!-- vista lista asignaciones -->
+    <record id="view_booking_room_rel_tree" model="ir.ui.view">
+          <field name="name">alojamiento.booking_room_rel.tree</field>
+          <field name="model">alojamiento.booking_room_rel</field>
+          <field name="arch" type="xml">
+              <tree>
+                  <field name="booking_id"/>
+                  <field name="student_id"/>
+                  <field name="room_id"/>
+                  <field name="type"/>
+              </tree>
+          </field>
+      </record>
   
 
+  <!-- vista formualrio asignaciones -->
+      <record id="view_booking_room_rel_form" model="ir.ui.view">
+              <field name="name">alojamiento.booking_room_rel.form</field>
+              <field name="model">alojamiento.booking_room_rel</field>
+              <field name="arch" type="xml">
+                  <form>
+                      <sheet>
+                      <h2>Datos asignaciones</h2>
+                          <group>
+                              <field name="booking_id"/>
+                              <field name="room_id"/>
+                              <field name="student_id"/>
+                              <field name="type"/>
+                          </group>
+                      </sheet>
+                  </form>
+              </field>
+          </record>
 
     <!-- actions opening views on models -->
 
