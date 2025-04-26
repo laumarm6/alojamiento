@@ -91,13 +91,7 @@ class Bookings(models.Model):
                 ('accommodation_id', 'in', accommodation_ids),
                 
             ])
-            # Si no hay, busco por distancia
-            if not rooms:
-                rooms = self.env['alojamiento.rooms'].search([
-                    #('is_occupied', '=', False),
-                    ('accommodation_id', 'in', accommodation_ids),
-                ])
-
+            
             # Si aún no hay, marco sin disponibilidad y terminamos
             if not rooms:
                 self.asigment_state = 'SIN'
