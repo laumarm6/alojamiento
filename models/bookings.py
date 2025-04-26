@@ -133,7 +133,13 @@ class Bookings(models.Model):
 
        
         self.asigment_state = 'ASN'
-        # Enviar email de confirmación …
-        # template = self.env.ref('alojamiento.email_template_reservation_confirmation', raise_if_not_found=False)
-        # if template:
-        #     template.send_mail(self.id, force_send=True)
+        
+        #self.send_assignment_emails()
+
+    #def send_assignment_emails(self):
+       # template = self.env.ref('alojamiento.email_template_assignment_confirmation', raise_if_not_found=False)
+       # if not template:
+           # return
+
+       #for assignment in self.assigments_ids:
+            #template.send_mail(assignment.id, force_send=True)
