@@ -62,69 +62,77 @@ class Bookings(models.Model):
 
 
     #
-    def assign_single_booking(self):
-        self.ensure_one()
+    
 
-        #if self.status != 'PEN' or self.assigments_ids:
-        if self.asigment_state != 'PEN' or self.status != 'CONF' or self.assigments_ids:
+#####asignacion 1 hab+recorrer studnets reserva
+    
+    def assign_bookings(self):
+        self.ensure_one()
+        # Sólo asigna si la reserva está confirmada y aún sin asignar
+        if self.asigment_state != 'PND' or self.status != 'CONF' or self.assigments_ids:
             return
 
-        # Nivel del estudiante (asumimos que todos los estudiantes tienen el mismo nivel)
-        level = self.students_ids and self.students_ids[0].level or False
+        # Recogemos recordset con todos los estudiantes de esta reserva
+        students_to_assign = self.students_ids[:]  
 
-        # Buscar alojamientos del tipo necesario
-        accommodations = self.env['alojamiento.accommodations'].search([('type', '=', self.type)])
+        # Preparamos lista de alojamientos válidos
+        accommodations = self.env['alojamiento.accommodations'].search([
+            ('type', '=', self.type),
+        ])
         accommodation_ids = accommodations.ids
 
-        # Buscar habitaciones libres de mismo tipo y nivel
-        rooms = self.env['alojamiento.rooms'].search([
-            ('is_occupied', '=', False),
-            ('accommodation_id', 'in', accommodation_ids),
-        ])
+        # Para cada estudiante de la reserva vamos a asiganr una habitación
+        for student in students_to_assign:  
+            
 
-        if not rooms:
+            # busco hab mismo tipo
             rooms = self.env['alojamiento.rooms'].search([
-                ('is_occupied', '=', False),
+               # ('is_occupied', '=', False),
                 ('accommodation_id', 'in', accommodation_ids),
-            ], order='accommodation_id.distance')
-
-        if not rooms:
-            self.asigment_state = 'SIN'
-            return
-
-        # Comprobar si ya hay estudiantes asignados en las mismas fechas
-        for room in rooms:
-            # Comprobamos si hay estudiantes asignados en las fechas solicitadas
-            existing_assignments = self.env['alojamiento.booking_room_rel'].search([
-                ('room_id', '=', room.id),
-                ('booking_id', '!=', self.id),  # Excluir la propia reserva
-                ('booking_id.start_date', '<', self.end_date),
-                ('booking_id.end_date', '>', self.start_date),  # Asegurarse de que las fechas se solapan
+                
             ])
+            # Si no hay, busco por distancia
+            if not rooms:
+                rooms = self.env['alojamiento.rooms'].search([
+                    #('is_occupied', '=', False),
+                    ('accommodation_id', 'in', accommodation_ids),
+                ])
 
-            if existing_assignments:
-                # Si hay asignaciones existentes, seguimos buscando
-                continue
+            # Si aún no hay, marco sin disponibilidad y terminamos
+            if not rooms:
+                self.asigment_state = 'SIN'
+                return
+            #ordeno por distancia antes de asignar
+            rooms = sorted(list(rooms), key=lambda room: room.accommodation_id.distance)
+            
+            # busco libre por fechas
+            assigned = False
+            for room in rooms:
+                overlapping = self.env['alojamiento.booking_room_rel'].search([
+                    ('room_id', '=', room.id),
+                    ('booking_id.start_date', '<', self.end_date),
+                    ('booking_id.end_date', '>', self.start_date),
+                ])
+                if overlapping:
+                    continue
+                # Creamos la relación reserva–habitación–estudiante
+                self.env['alojamiento.booking_room_rel'].create({  
+                    'booking_id': self.id,
+                    'room_id':    room.id,
+                    'student_id': student.id,                        
+                })
+                #room.is_occupied = True
+                assigned = True
+                break
 
-            # Asignar la habitación disponible
-            self.env['alojamiento.booking_room_rel'].create({
-                'booking_id': self.id,
-                'room_id': room.id,
-            })
-            room.is_occupied = True
-            self.asigment_state = 'ASN'
+            if not assigned:
+                
+                self.asigment_state = 'SIN'
+                return
 
-            # Enviar email de confirmación
-            #template = self.env.ref('alojamiento.email_template_reservation_confirmation', raise_if_not_found=False)
-            #if template:
-            #    template.send_mail(self.id, force_send=True)
-
-            break
-        else:
-            # Si no se asignaron habitaciones, cambiar estado de asignación
-            self.asigment_state = 'SIN'
-
-        # Enviar email de confirmación
-        #template = self.env.ref('alojamiento.email_template_reservation_confirmation', raise_if_not_found=False)
-        #if template:
-           # template.send_mail(self.id, force_send=True)
+       
+        self.asigment_state = 'ASN'
+        # Enviar email de confirmación …
+        # template = self.env.ref('alojamiento.email_template_reservation_confirmation', raise_if_not_found=False)
+        # if template:
+        #     template.send_mail(self.id, force_send=True)

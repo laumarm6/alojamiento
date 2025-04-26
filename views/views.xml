@@ -273,19 +273,21 @@
       <field name="name">alojamiento bookings list</field>
       <field name="model">alojamiento.bookings</field>
       <field name="arch" type="xml">
-       <tree decoration-danger="status == 'PEN'" decoration-muted="status == 'CANC'">
+       <tree decoration-danger="asigment_state == 'PND'" decoration-muted="status == 'CANC'">
           <field name="name"/>
           <field name="days"/>
           <field name="status"/>
           <field name="asigment_state"/>
           <field name="client_id"/>
           <field name="students_ids"/>
-          <button name="assign_single_booking"
+          <button name="assign_bookings"
                   type="object"
                   string="Asignar Habitaciones"
                   icon="fa-bed"
                   class="oe_list_button"
-                  attrs="{'invisible': [('status','!=','PEN')]}"/>
+                  attrs="{'invisible': ['|',
+                              ('status', '!=', 'CONF'),
+                              ('asigment_state', '!=', 'PND')]}"/>
         </tree>
       </field>
     </record>
@@ -297,7 +299,7 @@
       <field name="arch" type="xml">
           <form string="Reserva">
             <header>
-              <button name="assign_single_booking" type="object" string="Asignar Habitaciones" class="btn-primary"/>
+              <button name="assign_bookings" type="object" string="Asignar Habitaciones" class="btn-primary"/>
             </header>
               <sheet>
                   <h2>Datos Reserva</h2>
@@ -426,6 +428,10 @@
         </form>
       </field>
     </record>
+
+  
+  
+
 
     <!-- actions opening views on models -->
 

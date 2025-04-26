@@ -19,8 +19,9 @@ class Students(models.Model):
 # Estudiantes [N]:[N] Reservas
     
     booking_id = fields.Many2many('alojamiento.bookings', string="Reservas")
-    
 
+# Estudiantes [N]:[N] Booking relaciones  
+    booking_rel_ids = fields.One2many('alojamiento.booking_room_rel', 'student_id')
 
     _sql_constraints = [
     ('dni_uniq', 'unique(dni)', 'El dni debe ser único'),
