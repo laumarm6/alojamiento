@@ -14,6 +14,7 @@ class Students(models.Model):
     surname = fields.Char(string="Apellidos")
     address = fields.Text(string = "Dirección")
     phone = fields.Char(string = "Teléfono", size = 9, required = True)
+    email = fields.Char(string = "email")
     level = fields.Selection([('LA1','A1'),('LA2','A2'),('LB1', 'B1'),('LB2', 'B2'),('LC1', 'C1'),('LC2', 'C2')])
 
 # Estudiantes [N]:[N] Reservas

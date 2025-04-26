@@ -220,6 +220,7 @@
           <field name="name"/>
           <field name="surname"/>
           <field name="phone"/>
+          <field name="email"/>
           <field name="level"/>
         </tree>
       </field>
@@ -239,6 +240,7 @@
                             <field name="name"/>
                             <field name="surname"/>
                             <field name="phone"/>
+                            <field name="email"/>
                         </group>
                         <group>
                             <field name="address"/>
