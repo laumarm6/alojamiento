@@ -7,7 +7,7 @@ class BookingsRoomsRel (models.Model):
     room_id = fields.Many2one('alojamiento.rooms', string="Habitación")
     booking_id = fields.Many2one('alojamiento.bookings', string ="Reserva")
     #assigned_date = fields.Date(default=fields.Date.today)
-    type = fields.Selection([('AUT', 'Automática'), ('MAN', 'Manual')], string="Tipo")
+    #type = fields.Selection([('AUT', 'Automática'), ('MAN', 'Manual')], string="Tipo")
 
 
     _sql_constraints = [

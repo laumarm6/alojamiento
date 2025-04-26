@@ -8,7 +8,7 @@ from . import maintenanceissues
 from . import landlords
 from . import contracts
 from . import bookings
-from . import aclients
+from . import accommodationclients
 from . import students
 from . import bookingsroomsrel
 
