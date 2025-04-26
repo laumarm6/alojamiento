@@ -10,6 +10,7 @@ class Bookings(models.Model):
     start_date= fields.Date(string="Fecha inicio", required=True)
     end_date= fields.Date(string="Fecha fin", required=True)
     status = fields.Selection([('PEN', 'Pendiente'), ('CONF', 'Confirmada'), ('CANC', 'Cancelada')], default='PEN')
+    asigment_state = fields.Selection([('PND', 'Pendiente'), ('ASG', 'Asignada'), ('SDP', 'Sin Disponibilidad')], default='PND')
     days = fields.Integer(string="Duración", compute='_compute_days')
     
 
