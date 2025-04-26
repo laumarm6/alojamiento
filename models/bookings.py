@@ -60,12 +60,12 @@ class Bookings(models.Model):
             record.students_names = '/ '.join(student_names)
 
 
-    @api.model
+    #@api.model
     def assign_rooms(self):
         # Buscar reservas pendientes sin asignación
         pending = self.search([('status', '=', 'PEN'), ('assigments_ids', '=', False)])
         for res in pending:
-            # nivel del estudiante (tomamos el primero si hay varios)
+            # nivel del estudiante 
             level = res.students_ids and res.students_ids[0].level or False
             # Buscar habitaciones libres de mismo tipo y nivel
             rooms = self.env['alojamiento.rooms'].search([
