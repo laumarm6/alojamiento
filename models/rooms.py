@@ -15,6 +15,7 @@ class Rooms(models.Model):
     num_beds = fields.Integer(string = "Nº camas", required=True)
     num_bath = fields.Integer(string= "Nº baños", required=True)
     status = fields.Boolean()
+    is_occupied = fields.Boolean(default=False)
 
     _sql_constraints = [
     ('code_uniq', 'unique(code)', 'El identificador debe ser único'),
