@@ -277,6 +277,7 @@
           <field name="name"/>
           <field name="days"/>
           <field name="status"/>
+          <field name="asigment_state"/>
           <field name="client_id"/>
           <field name="students_ids"/>
           <button name="assign_single_booking"

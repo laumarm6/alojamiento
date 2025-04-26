@@ -9,8 +9,8 @@ class Bookings(models.Model):
     name = fields.Char(string="Identificador", required=True)
     start_date= fields.Date(string="Fecha inicio", required=True)
     end_date= fields.Date(string="Fecha fin", required=True)
-    status = fields.Selection([('PEN', 'Pendiente'), ('CONF', 'Confirmada'), ('CANC', 'Cancelada')], default='PEN')
-    asigment_state = fields.Selection([('PND', 'Pendiente'), ('ASN', 'Asignada'), ('SIN', 'Sin Disponibilidad')], default='PND')
+    status = fields.Selection([('PEN', 'Pendiente'), ('CONF', 'Confirmada'), ('CANC', 'Cancelada')], default='PEN', string = "Estado reserva")
+    asigment_state = fields.Selection([('PND', 'Pendiente'), ('ASN', 'Asignada'), ('SIN', 'Sin Disponibilidad')], default='PND', string = "Estado asignación")
     days = fields.Integer(string="Duración", compute='_compute_days')
     type = fields.Selection([('APT','Apartamento'),('RES','Residencia'),('FAM', 'Familia')], required=True)
     
