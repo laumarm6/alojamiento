@@ -119,7 +119,8 @@ class Bookings(models.Model):
                 self.env['alojamiento.booking_room_rel'].create({  
                     'booking_id': self.id,
                     'room_id':    room.id,
-                    'student_id': student.id,                        
+                    'student_id': student.id,
+                    'type':       'AUT',                        
                 })
                 #room.is_occupied = True
                 assigned = True
