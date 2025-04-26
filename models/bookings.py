@@ -59,3 +59,41 @@ class Bookings(models.Model):
             student_names = [student.name for student in record.students_ids]
             record.students_names = '/ '.join(student_names)
 
+
+    @api.model
+    def assign_rooms(self):
+        # Buscar reservas pendientes sin asignación
+        pending = self.search([('status', '=', 'PEN'), ('assigments_ids', '=', False)])
+        for res in pending:
+            # nivel del estudiante (tomamos el primero si hay varios)
+            level = res.students_ids and res.students_ids[0].level or False
+            # Buscar habitaciones libres de mismo tipo y nivel
+            rooms = self.env['alojamiento.rooms'].search([
+                ('is_occupied', False),
+                ('accommodation_id.type', '=', res.type),
+                ('level', '=', level),
+            ])
+            # Si no hay buscar habitación libre del tipo ordenado por distancia
+            if not rooms:
+                rooms = self.env['alojamiento.rooms'].search([
+                    ('is_occupied', False),
+                    ('accommodation_id.type', '=', res.type),
+                ], order='accommodation_id.distance')
+
+            # Si no hay habitaciones disponibles marcar 'sin disponibilidad'
+            if not rooms:
+                res.status = 'SIN'
+                continue
+
+            # Asignar la primera habitación
+            room = rooms[0]
+            rec = self.env['alojamiento.booking_room_rel'].create({
+                'booking_id': res.id,
+                'room_id':    room.id,
+            })
+            room.is_occupied = True
+            res.status = 'ASN'
+            # Enviar email 
+            template = self.env.ref('alojamiento.email_template_reservation_confirmation')
+            template.send_mail(res.id, force_send=True)
+        return True

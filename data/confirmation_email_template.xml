@@ -1,0 +1,25 @@
+<odoo>
+  <data>
+    <!-- Plantilla de email para confirmar la asignación de habitación -->
+    <record id="email_template_reservation_confirmation" model="mail.template">
+      <field name="name">Confirmación de Reserva</field>
+      <field name="model_id" ref="model_alojamiento_bookings"/>
+      <field name="email_from">${(user.email_formatted or 'noreply@tuempresa.com')}</field>
+      <field name="email_to">${object.client_id.email or ''}</field>
+      <field name="subject">[Reserva ${object.name}] Confirmación de asignación</field>
+      <!-- Cuerpo en HTML -->
+      <field name="body_html"><![CDATA[
+        <p>Hola <strong>${object.client_id.name}</strong>,</p>
+        <p>Tu reserva <strong>${object.name}</strong> ha sido <strong>ASIGNADA</strong> con éxito:</p>
+        <ul>
+          <li><strong>Alojamiento:</strong> ${object.assigments_ids and object.assigments_ids[0].room_id.accommodation_id.name or '—'}</li>
+          <li><strong>Habitación:</strong> ${object.assigments_ids and object.assigments_ids[0].room_id.name or '—'}</li>
+          <li><strong>Fecha inicio:</strong> ${object.start_date}</li>
+          <li><strong>Fecha fin:</strong> ${object.end_date}</li>
+          <li><strong>Duración:</strong> ${object.days} días</li>
+        </ul>
+        <p>¡Gracias por confiar en nosotros!</p>
+      ]]></field>
+    </record>
+  </data>
+</odoo>

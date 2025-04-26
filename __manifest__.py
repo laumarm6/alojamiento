@@ -20,7 +20,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base', 'mail'],
 
     'application': True,
 
@@ -36,6 +36,7 @@
         'data/maintenanceissues.xml',
         'data/rooms.xml',
         'data/contracts.xml',
+        'data/confirmation_email_template.xml',
         #reports
         'reports/template_bookings.xml',
         'reports/template_maintenanceissues.xml',
