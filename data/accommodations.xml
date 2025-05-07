@@ -10,6 +10,7 @@
             <field name="start_date">2018-02-15</field>
             <field name="end_date">2018-02-16</field>
             <field name="status">True</field>
+            <field name="distance">1</field>
           </record>
     </data>
 </odoo>

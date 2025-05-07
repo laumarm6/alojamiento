@@ -21,7 +21,7 @@ class Bookings(models.Model):
 ]
     
     # Bookings [N]:[1] Clients
-    client_id = fields.Many2one('alojamiento.aclients', string = "Cliente")
+    client_id = fields.Many2one('res.partner', string = "Cliente")
 
     # Bookings [N]:[N] Estudiantes
     students_ids = fields.Many2many('alojamiento.students', string = "Estudiantes")

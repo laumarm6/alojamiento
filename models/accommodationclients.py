@@ -12,10 +12,6 @@ class AccommodationClients(models.Model):
 # Clientes [1]:[N] Reservas
     booking_ids = fields.One2many('alojamiento.bookings', 'client_id', string ="Reservas")
 
-    #accommodation_client = fields.Boolean(string="Cliente de Alojamiento", default=False)
-    #room_preference = fields.Selection([
-       # ('IND', 'Individual'),
-       # ('DBL', 'Doble'),
-        #('PRV', 'Con baño privado'),
-   # ], string="Preferencia de habitación")
+    accommodation_client = fields.Boolean(string="Cliente de Alojamiento", default=False)
+    
     
