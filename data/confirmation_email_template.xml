@@ -3,9 +3,9 @@
     <!-- Plantilla de email para confirmar la asignación de habitación al estudiante -->
     <record id="email_template_assignment_confirmation" model="mail.template">
       <field name="name">Confirmación de Asignación de Habitación</field>
-      <field name="model_id" ref="model_alojamiento_booking_room_rel"/> <!-- <- Cambiado aquí -->
-      <field name="email_from">${(user.email_formatted)}</field>
-      <field name="email_to">${object.student_id.email}</field> <!-- <- Email del estudiante -->
+      <field name="model_id" ref="model_alojamiento_booking_room_rel"/> 
+      <field name="email_from">${(user.email)}</field>
+      <field name="email_to">${object.student_id.email}</field> 
       <field name="subject">[Reserva ${object.booking_id.name}] Confirmación de asignación</field>
 
       <field name="body_html"><![CDATA[

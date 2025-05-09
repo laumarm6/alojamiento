@@ -15,6 +15,7 @@ class MaintenanceIssues(models.Model):
     end_date= fields.Date(string="Fecha de baja", readonly=True)
     status = fields.Selection([('PEN','Pendiente'),('PRO','En proceso'),('RES', 'Resuelta')])
     description = fields.Text(string="Descripción incidencia")
+    
 
     _sql_constraints = [
     ('name_uniq', 'unique(name)', 'El identificador debe ser único'),
@@ -22,8 +23,11 @@ class MaintenanceIssues(models.Model):
 
  # Maintenanceissues [1]:[N] Accommodations
     accommodation_id = fields.Many2one('alojamiento.accommodations', string="Alojamiento")
+
+  
+    user_id=fields.Char(string="Usuario", default=lambda self: self.env.user.name, store=False, readonly=True)
     
-#poner un identificador automático
+
     @api.constrains('name')
     def _check_identificador(self):
         for record in self:
@@ -37,3 +41,7 @@ class MaintenanceIssues(models.Model):
     def _onchange_status(self):
         if self.status == 'RES'and self.end_date == False:
             self.end_date = date.today()
+    
+   
+
+    

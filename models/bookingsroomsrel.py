@@ -1,4 +1,7 @@
-from odoo import models, fields
+import logging
+from odoo import models, fields, api
+
+
 
 class BookingsRoomsRel (models.Model):
     _name = 'alojamiento.booking_room_rel'
@@ -15,3 +18,22 @@ class BookingsRoomsRel (models.Model):
     _sql_constraints = [
     ('booking_room_uniq', 'unique(room_id,booking_id)', 'La combinación de reserva y habitación debe ser único'),
     ]
+
+
+    
+    
+    @api.model_create_multi #porque pueden haber variso registros de asignaciones
+    def create(self, vals_list):  #create--> para que se ejecute cuando se crea un registro
+        records = super().create(vals_list)
+        template = self.env.ref(
+            'alojamiento.email_template_assignment_confirmation',
+            raise_if_not_found=False
+        )
+        if not template:
+            return records
+
+       
+        for assigments in records:
+            template.send_mail(assigments.id, force_send=True)
+           
+        return records 

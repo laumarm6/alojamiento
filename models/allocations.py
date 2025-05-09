@@ -7,8 +7,3 @@ class Allocations(models.Model):
 
     name = fields.Char(string="Identificador")
     type = fields.Selection([('AUT', 'Automática'), ('MAN', 'Manual')])
-    
-
-    
-    
-   
